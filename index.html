@@ -8,7 +8,7 @@
   <link rel="icon" href="assets/app_icon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KRPH0QPEMD"></script>
   <script>
@@ -20,11 +20,12 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- NAV -->
-  <nav class="nav" id="nav">
+  <nav class="nav" id="nav" aria-label="Primary">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">
+      <a href="#hero" class="nav-logo" aria-label="SimplShot home">
         <img src="assets/app_icon.png" alt="SimplShot icon" class="nav-icon" />
         <span>SimplShot</span>
       </a>
@@ -36,41 +37,44 @@
     </div>
   </nav>
 
+  <main id="main-content">
   <!-- HERO -->
-  <section class="hero" id="hero">
+  <section class="hero" id="hero" aria-labelledby="hero-title">
     <div class="hero-bg-glow"></div>
     <div class="hero-content reveal-up">
       <div class="hero-badge">
         <i data-lucide="github" class="badge-icon"></i>
         Free &amp; Open Source
       </div>
-      <h1 class="hero-headline">Annotate.<br/>Polish.<br/>Ship.</h1>
+      <h1 class="hero-headline" id="hero-title">Annotate.<br/>Polish.<br/>Ship.</h1>
       <p class="hero-sub">SimplShot is the macOS screenshot editor for designers and creators who care about the details — powerful annotation, reusable templates, custom backgrounds, and pixel-perfect batch capture.</p>
       <div class="hero-ctas">
         <a href="https://github.com/atlemo/SimplShot-App/releases/download/1.5.5/SimplShot.dmg" class="btn btn-accent btn-lg" download>
           <i data-lucide="download" class="btn-icon"></i>
           Download for macOS
         </a>
-        <a href="https://liberapay.com/atle/donate" class="btn btn-ghost btn-lg" target="_blank" rel="noopener">
+        <a href="https://liberapay.com/atle/donate" class="btn btn-ghost btn-lg" target="_blank" rel="noopener noreferrer">
           <i data-lucide="heart" class="btn-icon"></i>
           Support Development
+          <span class="visually-hidden">(opens in a new tab)</span>
         </a>
       </div>
       <p class="hero-meta">Free forever · macOS 14+ · No account needed</p>
     </div>
 
     <div class="hero-image-wrap reveal-up reveal-delay">
-      <div class="hero-image-container" id="heroImageContainer">
-        <img src="assets/promo-shot-1b.png" alt="SimplShot simple mode" class="hero-img" id="imgSimple" />
-        <img src="assets/promo-shot-1a.png" alt="SimplShot advanced mode" class="hero-img active" id="imgAdvanced" />
+      <div class="hero-image-container" id="heroImageContainer" role="img" aria-label="Preview of SimplShot in advanced mode">
+        <img src="assets/promo-shot-1b.png" alt="" class="hero-img" id="imgSimple" hidden aria-hidden="true" />
+        <img src="assets/promo-shot-1a.png" alt="" class="hero-img active" id="imgAdvanced" aria-hidden="true" />
         <div class="hero-image-glow"></div>
       </div>
-      <div class="hero-toggle">
-        <button class="toggle-btn active" id="btnAdvanced" data-target="advanced">
+      <p class="visually-hidden" id="heroPreviewStatus" aria-live="polite">Preview showing advanced mode.</p>
+      <div class="hero-toggle" role="group" aria-label="Editor preview mode">
+        <button class="toggle-btn active" id="btnAdvanced" data-target="advanced" type="button" aria-controls="heroImageContainer" aria-pressed="true">
           <i data-lucide="sliders-horizontal" class="toggle-icon"></i>
           Advanced
         </button>
-        <button class="toggle-btn" id="btnSimple" data-target="simple">
+        <button class="toggle-btn" id="btnSimple" data-target="simple" type="button" aria-controls="heroImageContainer" aria-pressed="false">
           <i data-lucide="scan" class="toggle-icon"></i>
           Simple
         </button>
@@ -80,19 +84,19 @@
   </section>
 
   <!-- TRUST BAR -->
-  <div class="trust-bar reveal-up">
+  <section class="trust-bar reveal-up" aria-label="SimplShot highlights">
     <div class="trust-bar-inner">
       <span class="trust-item"><i data-lucide="gift" class="trust-icon"></i>Free forever</span>
-      <span class="trust-dot"></span>
+      <span class="trust-dot" aria-hidden="true"></span>
       <span class="trust-item"><i data-lucide="github" class="trust-icon"></i>Open source</span>
-      <span class="trust-dot"></span>
+      <span class="trust-dot" aria-hidden="true"></span>
       <span class="trust-item"><i data-lucide="apple" class="trust-icon"></i>macOS native</span>
-      <span class="trust-dot"></span>
+      <span class="trust-dot" aria-hidden="true"></span>
       <span class="trust-item"><i data-lucide="shield-off" class="trust-icon"></i>No tracking</span>
-      <span class="trust-dot"></span>
+      <span class="trust-dot" aria-hidden="true"></span>
       <span class="trust-item"><i data-lucide="user-x" class="trust-icon"></i>No account</span>
     </div>
-  </div>
+  </section>
 
   <!-- FEATURES -->
   <section class="features" id="features">
@@ -213,7 +217,7 @@
         </span>
       </div>
 
-      <div class="batch-visual reveal-right">
+      <div class="batch-visual reveal-right" aria-hidden="true">
         <div class="batch-illustration">
           <div class="batch-frame batch-frame--lg">
             <div class="batch-frame-label">1280 × 800</div>
@@ -250,7 +254,7 @@
   <section class="templates" id="templates">
     <div class="section-inner templates-inner">
 
-      <div class="templates-visual reveal-left">
+      <div class="templates-visual reveal-left" aria-hidden="true">
         <div class="templates-showcase">
           <div class="templates-glow templates-glow--one"></div>
           <div class="templates-glow templates-glow--two"></div>
@@ -363,6 +367,7 @@
           title="SimplShot feature overview"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          loading="lazy"
           allowfullscreen>
         </iframe>
       </div>
@@ -377,9 +382,10 @@
         <h3>SimplShot is free and open source.</h3>
         <p>No subscriptions. No accounts. No surprises. Just a tool that works.</p>
       </div>
-      <a href="https://github.com/search?q=SimplShot" class="btn btn-outline" target="_blank" rel="noopener">
+      <a href="https://github.com/search?q=SimplShot" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
         View on GitHub
         <i data-lucide="external-link" class="btn-icon-right"></i>
+        <span class="visually-hidden">(opens in a new tab)</span>
       </a>
     </div>
   </section>
@@ -397,24 +403,26 @@
       </a>
       <div class="donate-nudge">
         <p>SimplShot is free forever. If it's saved you hours, a coffee goes a long way.</p>
-        <a href="https://liberapay.com/atle/donate" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">
+        <a href="https://liberapay.com/atle/donate" class="btn btn-ghost btn-sm" target="_blank" rel="noopener noreferrer">
           <i data-lucide="heart" class="btn-icon"></i>
           Support on Liberapay
+          <span class="visually-hidden">(opens in a new tab)</span>
         </a>
       </div>
     </div>
   </section>
+  </main>
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-logo">
+      <a href="#hero" class="footer-logo" aria-label="Back to top">
         <img src="assets/app_icon.png" alt="SimplShot" class="footer-icon" />
         <span>SimplShot</span>
-      </div>
+      </a>
       <div class="footer-links">
-        <a href="https://github.com/atlemo/SimplShot-App" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://liberapay.com/atle/donate" target="_blank" rel="noopener">Donate</a>
+        <a href="https://github.com/atlemo/SimplShot-App" target="_blank" rel="noopener noreferrer">GitHub<span class="visually-hidden"> (opens in a new tab)</span></a>
+        <a href="https://liberapay.com/atle/donate" target="_blank" rel="noopener noreferrer">Donate<span class="visually-hidden"> (opens in a new tab)</span></a>
         <a href="https://github.com/atlemo/SimplShot-App/releases/download/1.5.5/SimplShot.dmg" download>Download</a>
         <a href="privacy.html">Privacy</a>
       </div>

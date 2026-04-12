@@ -4,6 +4,12 @@
 
 // 1. Render icons immediately — must happen before anything that could throw
 lucide.createIcons();
+document.querySelectorAll('svg.lucide').forEach(icon => {
+  icon.setAttribute('aria-hidden', 'true');
+  icon.setAttribute('focusable', 'false');
+});
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 // 2. Mark JS active + immediately reveal in-viewport elements
 //    Both in the same synchronous block so the browser never paints a hidden frame
@@ -11,24 +17,26 @@ document.documentElement.classList.add('js');
 
 document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right').forEach(el => {
   const rect = el.getBoundingClientRect();
-  if (rect.top < window.innerHeight && rect.bottom > 0) {
+  if (prefersReducedMotion.matches || (rect.top < window.innerHeight && rect.bottom > 0)) {
     el.classList.add('visible');
   }
 });
 
 // 3. Observe off-screen elements for scroll-triggered reveal
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+if (!prefersReducedMotion.matches) {
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
 
-document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right').forEach(el => {
-  if (!el.classList.contains('visible')) revealObserver.observe(el);
-});
+  document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right').forEach(el => {
+    if (!el.classList.contains('visible')) revealObserver.observe(el);
+  });
+}
 
 // 4. Nav scroll state + parallax
 const nav = document.getElementById('nav');
@@ -44,38 +52,58 @@ const imgAdvanced = document.getElementById('imgAdvanced');
 const btnSimple   = document.getElementById('btnSimple');
 const btnAdvanced = document.getElementById('btnAdvanced');
 const progress    = document.getElementById('toggleProgress');
+const heroContainer = document.getElementById('heroImageContainer');
+const heroPreviewStatus = document.getElementById('heroPreviewStatus');
 
-if (imgSimple && imgAdvanced && btnSimple && btnAdvanced && progress) {
+if (imgSimple && imgAdvanced && btnSimple && btnAdvanced && progress && heroContainer && heroPreviewStatus) {
   let currentMode = 'advanced';
   let autoTimer = null;
 
-  const switchTo = (mode, stopAuto) => {
+  const stopAuto = () => {
+    if (autoTimer) {
+      clearInterval(autoTimer);
+      autoTimer = null;
+    }
+  };
+
+  const switchTo = (mode, stopAutoRotation) => {
+    if (stopAutoRotation) stopAuto();
     if (mode === currentMode) return;
     currentMode = mode;
     const toAdvanced = mode === 'advanced';
+
     imgSimple.classList.toggle('active', !toAdvanced);
     imgAdvanced.classList.toggle('active', toAdvanced);
+    imgSimple.hidden = toAdvanced;
+    imgAdvanced.hidden = !toAdvanced;
     btnSimple.classList.toggle('active', !toAdvanced);
     btnAdvanced.classList.toggle('active', toAdvanced);
+    btnSimple.setAttribute('aria-pressed', String(!toAdvanced));
+    btnAdvanced.setAttribute('aria-pressed', String(toAdvanced));
     progress.classList.toggle('right', !toAdvanced);
-    if (stopAuto) clearInterval(autoTimer);
+    heroContainer.setAttribute('aria-label', `Preview of SimplShot in ${mode} mode`);
+    heroPreviewStatus.textContent = `Preview showing ${mode} mode.`;
   };
 
   const startAuto = () => {
+    if (prefersReducedMotion.matches || autoTimer) return;
     autoTimer = setInterval(() => {
       switchTo(currentMode === 'simple' ? 'advanced' : 'simple', false);
     }, 5000);
   };
 
+  imgSimple.hidden = true;
+  imgAdvanced.hidden = false;
   btnSimple.addEventListener('click', () => switchTo('simple', true));
   btnAdvanced.addEventListener('click', () => switchTo('advanced', true));
   startAuto();
 
-  const heroContainer = document.getElementById('heroImageContainer');
-  if (heroContainer) {
-    heroContainer.addEventListener('mouseenter', () => clearInterval(autoTimer));
-    heroContainer.addEventListener('mouseleave', startAuto);
-  }
+  heroContainer.addEventListener('mouseenter', stopAuto);
+  heroContainer.addEventListener('mouseleave', startAuto);
+  heroContainer.addEventListener('focusin', stopAuto);
+  heroContainer.addEventListener('focusout', startAuto);
+  btnSimple.addEventListener('focus', stopAuto);
+  btnAdvanced.addEventListener('focus', stopAuto);
 }
 
 // 6. Smooth anchor scroll (offset for sticky nav height)
@@ -84,6 +112,9 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     const target = document.querySelector(link.getAttribute('href'));
     if (!target) return;
     e.preventDefault();
-    window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+    window.scrollTo({
+      top: target.getBoundingClientRect().top + window.scrollY - 80,
+      behavior: prefersReducedMotion.matches ? 'auto' : 'smooth'
+    });
   });
 });
