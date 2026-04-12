@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SimplShot — Annotate. Polish. Ship.</title>
+  <meta name="description" content="SimplShot is a free, open-source macOS screenshot editor with powerful annotation tools, custom backgrounds, and batch capture for designers and content creators." />
+  <link rel="icon" href="assets/app_icon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="assets/app_icon.png" alt="SimplShot icon" class="nav-icon" />
+        <span>SimplShot</span>
+      </a>
+      <a href="#features" class="nav-link">Features</a>
+      <a href="https://atle.co/simplshot/SimplShot.dmg" class="btn btn-accent nav-cta" download>
+        <i data-lucide="download" class="btn-icon"></i>
+        Download Free
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-glow"></div>
+    <div class="hero-content reveal-up">
+      <div class="hero-badge">
+        <i data-lucide="github" class="badge-icon"></i>
+        Free &amp; Open Source
+      </div>
+      <h1 class="hero-headline">Annotate.<br/>Polish.<br/>Ship.</h1>
+      <p class="hero-sub">SimplShot is the macOS screenshot editor for designers and creators who care about the details — powerful annotation, custom backgrounds, and pixel-perfect batch capture.</p>
+      <div class="hero-ctas">
+        <a href="https://atle.co/simplshot/SimplShot.dmg" class="btn btn-accent btn-lg" download>
+          <i data-lucide="download" class="btn-icon"></i>
+          Download for macOS
+        </a>
+        <a href="https://liberapay.com/atle/donate" class="btn btn-ghost btn-lg" target="_blank" rel="noopener">
+          <i data-lucide="heart" class="btn-icon"></i>
+          Support Development
+        </a>
+      </div>
+      <p class="hero-meta">Free forever · macOS 14+ · No account needed</p>
+    </div>
+
+    <div class="hero-image-wrap reveal-up reveal-delay">
+      <div class="hero-image-container" id="heroImageContainer">
+        <img src="assets/promo-shot-1b.png" alt="SimplShot simple mode" class="hero-img" id="imgSimple" />
+        <img src="assets/promo-shot-1a.png" alt="SimplShot advanced mode" class="hero-img active" id="imgAdvanced" />
+        <div class="hero-image-glow"></div>
+      </div>
+      <div class="hero-toggle">
+        <button class="toggle-btn active" id="btnAdvanced" data-target="advanced">
+          <i data-lucide="sliders-horizontal" class="toggle-icon"></i>
+          Advanced
+        </button>
+        <button class="toggle-btn" id="btnSimple" data-target="simple">
+          <i data-lucide="scan" class="toggle-icon"></i>
+          Simple
+        </button>
+        <div class="toggle-progress" id="toggleProgress"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar reveal-up">
+    <div class="trust-bar-inner">
+      <span class="trust-item"><i data-lucide="gift" class="trust-icon"></i>Free forever</span>
+      <span class="trust-dot"></span>
+      <span class="trust-item"><i data-lucide="github" class="trust-icon"></i>Open source</span>
+      <span class="trust-dot"></span>
+      <span class="trust-item"><i data-lucide="apple" class="trust-icon"></i>macOS native</span>
+      <span class="trust-dot"></span>
+      <span class="trust-item"><i data-lucide="shield-off" class="trust-icon"></i>No tracking</span>
+      <span class="trust-dot"></span>
+      <span class="trust-item"><i data-lucide="user-x" class="trust-icon"></i>No account</span>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="section-inner">
+      <div class="section-header reveal-up">
+        <span class="section-label">Annotation Tools</span>
+        <h2 class="section-title">Every tool you need.<br/>Nothing you don't.</h2>
+        <p class="section-sub">SimplShot packs a full annotation toolkit into a clean, distraction-free interface — built around the tools you actually reach for, every single day.</p>
+      </div>
+
+      <div class="features-grid">
+
+        <div class="feature-card reveal-up" style="--delay: 0ms">
+          <div class="feature-icon-wrap">
+            <i data-lucide="pencil" class="feature-icon"></i>
+          </div>
+          <h3>Free Draw</h3>
+          <p>Sketch freehand on your screenshot with smooth, natural strokes.</p>
+        </div>
+
+        <div class="feature-card reveal-up" style="--delay: 60ms">
+          <div class="feature-icon-wrap">
+            <i data-lucide="shapes" class="feature-icon"></i>
+          </div>
+          <h3>Shapes</h3>
+          <p>Circles, rectangles, and more — quickly draw attention to exactly what matters.</p>
+        </div>
+
+        <div class="feature-card reveal-up" style="--delay: 120ms">
+          <div class="feature-icon-wrap">
+            <i data-lucide="arrow-up-right" class="feature-icon"></i>
+          </div>
+          <h3>Arrows &amp; Lines</h3>
+          <p>Multiple arrow styles and line types to point, connect, and guide.</p>
+        </div>
+
+        <div class="feature-card reveal-up" style="--delay: 180ms">
+          <div class="feature-icon-wrap">
+            <i data-lucide="scan" class="feature-icon"></i>
+          </div>
+          <h3>Pixelation</h3>
+          <p>Blur or pixelate sensitive content — emails, passwords, private data.</p>
+        </div>
+
+        <div class="feature-card reveal-up" style="--delay: 240ms">
+          <div class="feature-icon-wrap">
+            <i data-lucide="highlighter" class="feature-icon"></i>
+          </div>
+          <h3>Highlight &amp; Dim</h3>
+          <p>Focus attention with highlights or push background content into shadow.</p>
+        </div>
+
+        <div class="feature-card reveal-up" style="--delay: 300ms">
+          <div class="feature-icon-wrap">
+            <i data-lucide="ruler" class="feature-icon"></i>
+          </div>
+          <h3>Measurements</h3>
+          <p>Show exact pixel distances and dimensions right on the image.</p>
+        </div>
+
+        <div class="feature-card reveal-up" style="--delay: 360ms">
+          <div class="feature-icon-wrap">
+            <i data-lucide="list-ordered" class="feature-icon"></i>
+          </div>
+          <h3>Numbering</h3>
+          <p>Add numbered callouts to walk viewers through steps in sequence.</p>
+        </div>
+
+        <div class="feature-card reveal-up" style="--delay: 420ms">
+          <div class="feature-icon-wrap">
+            <i data-lucide="image" class="feature-icon"></i>
+          </div>
+          <h3>Custom Backgrounds</h3>
+          <p>Beautiful gradients and solid fills to make your screenshots pop.</p>
+        </div>
+
+        <div class="feature-card reveal-up" style="--delay: 480ms">
+          <div class="feature-icon-wrap">
+            <i data-lucide="crop" class="feature-icon"></i>
+          </div>
+          <h3>Crop</h3>
+          <p>Trim and frame your captures perfectly before you export.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BATCH CAPTURE SPOTLIGHT -->
+  <section class="batch" id="batch">
+    <div class="section-inner batch-inner">
+
+      <div class="batch-copy reveal-left">
+        <span class="section-label">Unique Feature</span>
+        <h2 class="section-title">Batch capture.<br/>Every size at once.</h2>
+        <p class="section-sub">Define a set of custom window sizes, then capture any app window in all of them in a single click. No more resizing, recapturing, and re-exporting one by one.</p>
+        <ul class="batch-list">
+          <li>
+            <i data-lucide="check-circle" class="check-icon"></i>
+            <span>Perfect for app store screenshots in multiple device sizes</span>
+          </li>
+          <li>
+            <i data-lucide="check-circle" class="check-icon"></i>
+            <span>Generate all social media formats simultaneously</span>
+          </li>
+          <li>
+            <i data-lucide="check-circle" class="check-icon"></i>
+            <span>Set your own custom size presets — reuse them anytime</span>
+          </li>
+          <li>
+            <i data-lucide="check-circle" class="check-icon"></i>
+            <span>Saves hours of repetitive work on every release</span>
+          </li>
+        </ul>
+        <span class="unique-badge">
+          <i data-lucide="sparkles" class="badge-icon"></i>
+          Unique to SimplShot
+        </span>
+      </div>
+
+      <div class="batch-visual reveal-right">
+        <div class="batch-illustration">
+          <div class="batch-frame batch-frame--lg">
+            <div class="batch-frame-label">1280 × 800</div>
+            <div class="batch-frame-content">
+              <div class="batch-mock-toolbar"></div>
+              <div class="batch-mock-body"></div>
+            </div>
+          </div>
+          <div class="batch-frame batch-frame--md">
+            <div class="batch-frame-label">800 × 600</div>
+            <div class="batch-frame-content">
+              <div class="batch-mock-toolbar"></div>
+              <div class="batch-mock-body"></div>
+            </div>
+          </div>
+          <div class="batch-frame batch-frame--sm">
+            <div class="batch-frame-label">375 × 667</div>
+            <div class="batch-frame-content">
+              <div class="batch-mock-toolbar"></div>
+              <div class="batch-mock-body"></div>
+            </div>
+          </div>
+          <div class="batch-capture-btn">
+            <i data-lucide="camera" class="capture-icon"></i>
+            Capture All
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="video-section reveal-up">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">See it in action</span>
+        <h2 class="section-title">Watch the quick tour</h2>
+        <p class="section-sub">Get a feel for how SimplShot fits into your workflow in under two minutes.</p>
+      </div>
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/c-ONA-4CgQo"
+          title="SimplShot feature overview"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPEN SOURCE STRIP -->
+  <section class="oss-strip reveal-up">
+    <div class="section-inner oss-inner">
+      <i data-lucide="github" class="oss-icon"></i>
+      <div class="oss-text">
+        <h3>SimplShot is free and open source.</h3>
+        <p>No subscriptions. No accounts. No surprises. Just a tool that works.</p>
+      </div>
+      <a href="https://github.com/search?q=SimplShot" class="btn btn-outline" target="_blank" rel="noopener">
+        View on GitHub
+        <i data-lucide="external-link" class="btn-icon-right"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD + DONATE CTA -->
+  <section class="cta-section" id="download">
+    <div class="cta-noise"></div>
+    <div class="section-inner cta-inner reveal-up">
+      <img src="assets/app_icon.png" alt="SimplShot" class="cta-icon" />
+      <h2 class="cta-title">Ready to level up<br/>your screenshots?</h2>
+      <p class="cta-sub">Free, always. Download and start using it in seconds.</p>
+      <a href="https://atle.co/simplshot/SimplShot.dmg" class="btn btn-accent btn-lg" download>
+        <i data-lucide="download" class="btn-icon"></i>
+        Download for macOS
+      </a>
+      <div class="donate-nudge">
+        <p>SimplShot is free forever. If it's saved you hours, a coffee goes a long way.</p>
+        <a href="https://liberapay.com/atle/donate" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">
+          <i data-lucide="heart" class="btn-icon"></i>
+          Support on Liberapay
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="assets/app_icon.png" alt="SimplShot" class="footer-icon" />
+        <span>SimplShot</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/search?q=SimplShot" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://liberapay.com/atle/donate" target="_blank" rel="noopener">Donate</a>
+        <a href="https://atle.co/simplshot/SimplShot.dmg" download>Download</a>
+      </div>
+      <p class="footer-copy">© 2025 SimplShot. Made with care for the macOS community.</p>
+    </div>
+  </footer>
+
+  <script src="assets/lucide.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
