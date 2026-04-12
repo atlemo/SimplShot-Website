@@ -11,9 +11,9 @@
   --surface:     #161618;
   --surface-2:   #1F1F24;
   --surface-3:   #28282F;
-  --accent:      #fc4b09;
+  --accent:      #fc2e09;
   --accent-dim:  rgba(252, 88, 18, 0.12);
-  --accent-glow: rgba(252, 76, 18, 0.25);
+  --accent-glow: rgba(252, 61, 18, 0.25);
   --template-accent: #7cdcff;
   --template-accent-2: #ffd166;
   --template-accent-dim: rgba(124, 220, 255, 0.16);
@@ -195,18 +195,47 @@ iframe:focus:not(:focus-visible) {
   text-align: center;
   padding: 120px 24px 100px;
   position: relative;
+  overflow: hidden;
 }
 
+/* Fills the hero entirely — no viewport-width tricks, no scroll-clip issues */
 .hero-bg-glow {
   position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 800px;
-  height: 400px;
-  background: radial-gradient(ellipse, rgba(245,197,66,0.08) 0%, transparent 70%);
+  inset: 0;
   pointer-events: none;
   z-index: 0;
+}
+
+/* Amber core + teal/cyan — drifts left */
+.hero-bg-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 55% 60% at 50% 36%, rgba(252, 88, 18, 0.10) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 65% at 18% 54%, rgba(20, 184, 166, 0.13) 0%, transparent 65%),
+    radial-gradient(ellipse 36% 44% at 66% 26%, rgba(124, 220, 255, 0.08) 0%, transparent 60%);
+  animation: auroraLeft 12s ease-in-out infinite alternate;
+}
+
+/* Purple/violet + warm gold — drifts right, offset start */
+.hero-bg-glow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 52% 58% at 80% 44%, rgba(139, 92, 246, 0.12) 0%, transparent 65%),
+    radial-gradient(ellipse 32% 42% at 38% 20%, rgba(255, 209, 102, 0.07) 0%, transparent 60%);
+  animation: auroraRight 14s ease-in-out 2s infinite alternate;
+}
+
+@keyframes auroraLeft {
+  0%   { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+@keyframes auroraRight {
+  0%   { opacity: 1; }
+  100% { opacity: 0.35; }
 }
 
 .hero-content {
@@ -637,19 +666,19 @@ iframe:focus:not(:focus-visible) {
 
 .templates-copy .section-title { text-align: left; }
 .templates-copy .section-sub { text-align: left; margin: 0 0 32px; }
-.templates-list .check-icon { color: var(--template-accent); }
+.templates-list .check-icon { color: var(--green); }
 
 .template-badge {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  background: var(--template-accent-dim);
-  border: 1px solid rgba(124, 220, 255, 0.24);
+  background: var(--accent-dim);
+  border: 1px solid rgba(245,197,66,0.2);
   border-radius: 999px;
   padding: 7px 14px;
   font-size: 0.8rem;
   font-weight: 700;
-  color: var(--template-accent);
+  color: var(--accent);
   letter-spacing: 0.01em;
 }
 
