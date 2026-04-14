@@ -57,17 +57,8 @@ const heroPreviewStatus = document.getElementById('heroPreviewStatus');
 
 if (imgSimple && imgAdvanced && btnSimple && btnAdvanced && progress && heroContainer && heroPreviewStatus) {
   let currentMode = 'advanced';
-  let autoTimer = null;
-
-  const stopAuto = () => {
-    if (autoTimer) {
-      clearInterval(autoTimer);
-      autoTimer = null;
-    }
-  };
-
-  const switchTo = (mode, stopAutoRotation) => {
-    if (stopAutoRotation) stopAuto();
+  
+  const switchTo = (mode) => {
     if (mode === currentMode) return;
     currentMode = mode;
     const toAdvanced = mode === 'advanced';
@@ -85,25 +76,10 @@ if (imgSimple && imgAdvanced && btnSimple && btnAdvanced && progress && heroCont
     heroPreviewStatus.textContent = `Preview showing ${mode} mode.`;
   };
 
-  const startAuto = () => {
-    if (prefersReducedMotion.matches || autoTimer) return;
-    autoTimer = setInterval(() => {
-      switchTo(currentMode === 'simple' ? 'advanced' : 'simple', false);
-    }, 5000);
-  };
-
   imgSimple.hidden = true;
   imgAdvanced.hidden = false;
-  btnSimple.addEventListener('click', () => switchTo('simple', true));
-  btnAdvanced.addEventListener('click', () => switchTo('advanced', true));
-  startAuto();
-
-  heroContainer.addEventListener('mouseenter', stopAuto);
-  heroContainer.addEventListener('mouseleave', startAuto);
-  heroContainer.addEventListener('focusin', stopAuto);
-  heroContainer.addEventListener('focusout', startAuto);
-  btnSimple.addEventListener('focus', stopAuto);
-  btnAdvanced.addEventListener('focus', stopAuto);
+  btnSimple.addEventListener('click', () => switchTo('simple'));
+  btnAdvanced.addEventListener('click', () => switchTo('advanced'));
 }
 
 // 6. Smooth anchor scroll (offset for sticky nav height)

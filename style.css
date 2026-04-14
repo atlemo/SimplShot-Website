@@ -11,15 +11,15 @@
   --surface:     #161618;
   --surface-2:   #1F1F24;
   --surface-3:   #28282F;
-  --accent:      #fc2e09;
+  --accent:      #ff4800;
   --accent-dim:  rgba(252, 88, 18, 0.12);
-  --accent-glow: rgba(252, 61, 18, 0.25);
+  --accent-glow: rgba(252, 76, 18, 0.25);
   --template-accent: #7cdcff;
   --template-accent-2: #ffd166;
   --template-accent-dim: rgba(124, 220, 255, 0.16);
   --green:       #4ADE80;
   --green-dim:   rgba(74, 222, 128, 0.12);
-  --text-1:      #F0F0F2;
+  --text-1:      #f2f1f0;
   --text-2:      #b3b1a9;
   --text-3:      #c59a8d;
   --border:      rgba(255, 255, 255, 0.07);
@@ -109,14 +109,14 @@ iframe:focus:not(:focus-visible) {
 }
 .btn:hover { transform: translateY(-1px); }
 .btn:active { transform: translateY(0); }
-.btn:focus-visible { box-shadow: 0 0 0 4px rgba(143, 229, 255, 0.22); }
+.btn:focus-visible { box-shadow: 0 0 0 4px var(--accent-glow); }
 
 .btn-accent {
   background: var(--accent);
   color: var(--text-1);
-  box-shadow: 0 4px 20px rgba(252, 52, 18, 0.3);
+  box-shadow: 0 4px 20px var(--accent-glow);
 }
-.btn-accent:hover { box-shadow: 0 6px 28px rgba(252, 52, 18, 0.45); }
+.btn-accent:hover { box-shadow: 0 6px 28px var(--accent-glow); }
 
 .btn-ghost {
   background: transparent;
@@ -212,9 +212,9 @@ iframe:focus:not(:focus-visible) {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 55% 60% at 50% 36%, rgba(252, 88, 18, 0.10) 0%, transparent 65%),
-    radial-gradient(ellipse 50% 65% at 18% 54%, rgba(20, 184, 166, 0.13) 0%, transparent 65%),
-    radial-gradient(ellipse 36% 44% at 66% 26%, rgba(124, 220, 255, 0.08) 0%, transparent 60%);
+    radial-gradient(ellipse 55% 60% at 50% 36%, rgba(252, 88, 18, 0.14) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 65% at 18% 54%, rgba(20, 184, 166, 0.17) 0%, transparent 65%),
+    radial-gradient(ellipse 36% 44% at 66% 26%, rgba(124, 220, 255, 0.12) 0%, transparent 60%);
   animation: auroraLeft 12s ease-in-out infinite alternate;
 }
 
@@ -225,7 +225,7 @@ iframe:focus:not(:focus-visible) {
   inset: 0;
   background:
     radial-gradient(ellipse 52% 58% at 80% 44%, rgba(139, 92, 246, 0.12) 0%, transparent 65%),
-    radial-gradient(ellipse 32% 42% at 38% 20%, rgba(255, 209, 102, 0.07) 0%, transparent 60%);
+    radial-gradient(ellipse 32% 42% at 38% 20%, rgba(255, 192, 120, 0.06) 0%, transparent 70%);
   animation: auroraRight 14s ease-in-out 2s infinite alternate;
 }
 
@@ -236,6 +236,19 @@ iframe:focus:not(:focus-visible) {
 @keyframes auroraRight {
   0%   { opacity: 1; }
   100% { opacity: 0.35; }
+}
+
+/* Noise/grain overlay sitting on top of the blobs */
+.hero-bg-glow-noise {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("assets/noise.png");
+  background-repeat: repeat;
+  background-size: 140px 140px;
+  opacity: 0;
+  mix-blend-mode: overlay;
 }
 
 .hero-content {
@@ -249,7 +262,6 @@ iframe:focus:not(:focus-visible) {
   align-items: center;
   gap: 7px;
   background: var(--surface-2);
-  border: 1px solid var(--border-2);
   border-radius: 999px;
   padding: 6px 14px;
   font-size: 0.82rem;
@@ -544,7 +556,6 @@ iframe:focus:not(:focus-visible) {
   align-items: center;
   gap: 7px;
   background: var(--accent-dim);
-  border: 1px solid rgba(245,197,66,0.2);
   border-radius: 999px;
   padding: 7px 14px;
   font-size: 0.8rem;
@@ -631,7 +642,7 @@ iframe:focus:not(:focus-visible) {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  box-shadow: 0 4px 20px rgba(252,52,18,0.4);
+  box-shadow: 0 4px 20px var(--accent-glow);
   white-space: nowrap;
   z-index: 10;
 }
@@ -673,7 +684,6 @@ iframe:focus:not(:focus-visible) {
   align-items: center;
   gap: 7px;
   background: var(--accent-dim);
-  border: 1px solid rgba(245,197,66,0.2);
   border-radius: 999px;
   padding: 7px 14px;
   font-size: 0.8rem;
@@ -1048,28 +1058,17 @@ iframe:focus:not(:focus-visible) {
 /* --- CTA SECTION --- */
 .cta-section {
   padding: 100px 0;
-  position: relative;
-  overflow: hidden;
-  background: var(--surface);
-  border-top: 1px solid var(--border);
+  background: var(--accent);
 }
-.cta-noise {
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
-  opacity: 0.4;
-  pointer-events: none;
-}
+.cta-noise { display: none; }
 .cta-inner {
   text-align: center;
-  position: relative;
-  z-index: 1;
 }
 .cta-icon {
   width: 72px; height: 72px;
   border-radius: 18px;
   margin: 0 auto 28px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
 }
 .cta-title {
   font-size: clamp(2.2rem, 5vw, 3.5rem);
@@ -1077,10 +1076,11 @@ iframe:focus:not(:focus-visible) {
   letter-spacing: -0.04em;
   line-height: 1.1;
   margin-bottom: 16px;
+  color: #fff;
 }
 .cta-sub {
   font-size: 1.05rem;
-  color: var(--text-2);
+  color: rgba(255,255,255,0.75);
   margin-bottom: 36px;
 }
 .donate-nudge {
@@ -1092,7 +1092,21 @@ iframe:focus:not(:focus-visible) {
 }
 .donate-nudge p {
   font-size: 0.88rem;
-  color: var(--text-2);
+  color: rgba(255,255,255,0.7);
+}
+.cta-section .btn-accent {
+  background: #fff;
+  color: var(--accent);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+.cta-section .btn-accent:hover { box-shadow: 0 6px 28px rgba(0,0,0,0.3); }
+.cta-section .btn-ghost {
+  color: rgba(255,255,255,0.85);
+  border-color: rgba(255,255,255,0.35);
+}
+.cta-section .btn-ghost:hover {
+  color: #fff;
+  border-color: rgba(255,255,255,0.6);
 }
 
 /* --- FOOTER --- */
