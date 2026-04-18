@@ -43,10 +43,6 @@
     <div class="hero-bg-glow"></div>
     <div class="hero-bg-glow-noise" aria-hidden="true"></div>
     <div class="hero-content reveal-up">
-      <div class="hero-badge">
-        <i data-lucide="github" class="badge-icon"></i>
-        Free &amp; Open Source
-      </div>
       <h1 class="hero-headline" id="hero-title">Annotate.<br/>Polish.<br/>Ship.</h1>
       <p class="hero-sub">SimplShot is the macOS screenshot editor for designers and creators who care about the details — powerful annotation, reusable templates, custom backgrounds, and pixel-perfect batch capture.</p>
       <div class="hero-ctas">
@@ -196,6 +192,14 @@
           </div>
           <h3>Keyboard Shortcuts</h3>
           <p>Move faster through your workflow with shortcuts for every tool, action, and export.</p>
+        </div>
+
+        <div class="feature-card reveal-up" style="--delay: 660ms">
+          <div class="feature-icon-wrap">
+            <i data-lucide="pipette" class="feature-icon"></i>
+          </div>
+          <h3>Color Picker</h3>
+          <p>Sample any color anywhere on your screen and instantly copy its value in any format.</p>
         </div>
 
       </div>
@@ -407,6 +411,10 @@
     </div>
   </section>
 
+  </main>
+
+  <div class="starfield-zone">
+
   <!-- DOWNLOAD + DONATE CTA -->
   <section class="cta-section" id="download">
     <div class="section-inner cta-inner reveal-up">
@@ -427,7 +435,6 @@
       </div>
     </div>
   </section>
-  </main>
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -446,7 +453,99 @@
     </div>
   </footer>
 
+  </div><!-- /.starfield-zone -->
+
   <script src="assets/lucide.min.js"></script>
   <script src="script.js"></script>
+  <script>
+  (function () {
+    const section = document.querySelector('.starfield-zone');
+    const btn = section && section.querySelector('.btn-accent.btn-lg');
+    if (!section || !btn) return;
+
+    section.style.position = 'relative';
+    section.style.overflow = 'hidden';
+
+    const canvas = document.createElement('canvas');
+    canvas.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:-1';
+    section.insertBefore(canvas, section.firstChild);
+    const ctx = canvas.getContext('2d');
+
+    const NUM = 150, BASE = 1, TRAIL = 0.2, MAX_ACC = 10, ACC = 0.2, DEC = 0.2, MIN_R = 80, MAX_R = 500;
+    let stars = [], accel = false, accF = 0, ox = 0, oy = 0, W = 0, H = 0, lastT = 0;
+
+    function rnd(a, b) { return Math.random() * (b - a) + a; }
+    function clamp01(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
+    function onScreen(x, y) { return x >= 0 && x <= W && y >= 0 && y <= H; }
+
+    function origin() {
+      const br = btn.getBoundingClientRect(), sr = section.getBoundingClientRect();
+      ox = br.left - sr.left + br.width / 2;
+      oy = br.top - sr.top + br.height / 2;
+    }
+
+    function resize() {
+      W = canvas.width = section.clientWidth;
+      H = canvas.height = section.clientHeight;
+      origin();
+      stars.forEach(s => s.reset());
+      ctx.fillStyle = 'rgb(255,72,0)';
+      ctx.fillRect(0, 0, W, H);
+    }
+
+    class Star {
+      init() {
+        const a = rnd(0, Math.PI * 2), r = rnd(MIN_R, MAX_R);
+        this.x = ox + Math.cos(a) * r; this.y = oy + Math.sin(a) * r;
+        this.px = this.x; this.py = this.y;
+        this.vx = 0; this.vy = 0;
+        this.a = Math.atan2(this.y - oy, this.x - ox);
+        this.spd = rnd(BASE * 0.5, BASE * 1.5);
+      }
+      reset() { this.init(); }
+      update(acc, dt) {
+        const f = acc * this.spd;
+        this.vx += Math.cos(this.a) * f * dt; this.vy += Math.sin(this.a) * f * dt;
+        this.px = this.x; this.py = this.y;
+        this.x += this.vx * dt; this.y += this.vy * dt;
+      }
+      draw() {
+        const vel = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
+        ctx.lineWidth = clamp01((vel - 0) / 10) * 2 + 1;
+        ctx.strokeStyle = `rgba(255,255,255,${clamp01(vel / 10)})`;
+        ctx.beginPath(); ctx.moveTo(this.px, this.py); ctx.lineTo(this.x, this.y); ctx.stroke();
+      }
+    }
+
+    function frame(t) {
+      if (!lastT) lastT = t;
+      const dt = (t - lastT) / 16.67;
+      lastT = t;
+
+      origin();
+      ctx.fillStyle = `rgba(255,72,0,${TRAIL})`;
+      ctx.fillRect(0, 0, W, H);
+
+      accF = accel ? Math.min(accF + ACC * dt, MAX_ACC) : Math.max(accF - DEC * dt, 0);
+      const acc = 0.01 * (1 + accF * 10);
+
+      for (const s of stars) {
+        s.update(acc, dt);
+        s.draw();
+        if (!onScreen(s.x, s.y)) s.reset();
+      }
+      requestAnimationFrame(frame);
+    }
+
+    btn.addEventListener('mouseenter', () => accel = true);
+    btn.addEventListener('mouseleave', () => accel = false);
+    window.addEventListener('resize', resize);
+    document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') lastT = 0; });
+
+    resize();
+    for (let i = 0; i < NUM; i++) { const s = new Star(); s.init(); stars.push(s); }
+    requestAnimationFrame(frame);
+  })();
+  </script>
 </body>
 </html>

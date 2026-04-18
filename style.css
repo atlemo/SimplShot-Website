@@ -285,7 +285,7 @@ iframe:focus:not(:focus-visible) {
 .hero-sub {
   font-size: clamp(1rem, 2vw, 1.15rem);
   color: var(--text-2);
-  max-width: 540px;
+  max-width: 640px;
   margin: 0 auto 36px;
   line-height: 1.7;
 }
@@ -1055,10 +1055,15 @@ iframe:focus:not(:focus-visible) {
 }
 .oss-text p { font-size: 0.9rem; color: var(--text-2); }
 
+/* --- STARFIELD ZONE (CTA + FOOTER) --- */
+.starfield-zone {
+  background: var(--accent);
+  isolation: isolate;
+}
+
 /* --- CTA SECTION --- */
 .cta-section {
-  padding: 100px 0;
-  background: var(--accent);
+  padding: 140px 0 100px 0;
 }
 .cta-noise { display: none; }
 .cta-inner {
@@ -1111,7 +1116,6 @@ iframe:focus:not(:focus-visible) {
 
 /* --- FOOTER --- */
 .footer {
-  border-top: 1px solid var(--border);
   padding: 32px 24px;
 }
 .footer-inner {
@@ -1129,6 +1133,7 @@ iframe:focus:not(:focus-visible) {
   font-weight: 700;
   font-size: 0.9rem;
   margin-right: auto;
+  color: #fff;
 }
 .footer-icon { width: 22px; height: 22px; border-radius: 5px; }
 .footer-links {
@@ -1137,18 +1142,18 @@ iframe:focus:not(:focus-visible) {
 }
 .footer-links a {
   font-size: 0.85rem;
-  color: var(--text-2);
+  color: rgba(255,255,255,0.75);
   transition: color 0.15s;
 }
-.footer-links a:hover { color: var(--text-1); }
-.footer-links a:focus-visible { color: var(--text-1); }
+.footer-links a:hover { color: #fff; }
+.footer-links a:focus-visible { color: #fff; }
 .footer-copy {
   width: 100%;
   font-size: 0.78rem;
-  color: var(--text-2);
+  color: rgba(255,255,255,0.6);
   text-align: center;
   padding-top: 16px;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(255,255,255,0.2);
 }
 
 /* --- SCROLL ANIMATIONS --- */
