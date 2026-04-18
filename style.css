@@ -151,7 +151,6 @@ iframe:focus:not(:focus-visible) {
   background: rgba(12, 12, 14, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-color: var(--border);
 }
 .nav-inner {
   max-width: 1100px;
@@ -503,8 +502,11 @@ iframe:focus:not(:focus-visible) {
   align-items: center;
   justify-content: center;
   margin-bottom: 16px;
+  transition: background 0.2s;
 }
-.feature-icon { width: 20px; height: 20px; color: var(--accent); }
+.feature-icon { width: 20px; height: 20px; color: var(--accent); transition: color 0.2s; }
+.feature-card:hover .feature-icon-wrap { background: var(--accent); }
+.feature-card:hover .feature-icon { color: #fff; }
 .feature-card h3 {
   font-size: 0.95rem;
   font-weight: 700;

@@ -89,7 +89,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     if (!target) return;
     e.preventDefault();
     window.scrollTo({
-      top: target.getBoundingClientRect().top + window.scrollY - 80,
+      top: target.getBoundingClientRect().top + window.scrollY - 30,
       behavior: prefersReducedMotion.matches ? 'auto' : 'smooth'
     });
   });
