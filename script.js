@@ -82,7 +82,20 @@ if (imgSimple && imgAdvanced && btnSimple && btnAdvanced && progress && heroCont
   btnAdvanced.addEventListener('click', () => switchTo('advanced'));
 }
 
-// 6. Smooth anchor scroll (offset for sticky nav height)
+// 6. Auto-update download links from the latest GitHub release
+fetch('https://api.github.com/repos/atlemo/SimplShot-App/releases/latest', {
+  headers: { Accept: 'application/vnd.github+json' }
+})
+  .then(r => r.ok ? r.json() : Promise.reject())
+  .then(data => {
+    const tag = data.tag_name;
+    if (!tag) return;
+    const url = `https://github.com/atlemo/SimplShot-App/releases/download/${tag}/SimplShot.dmg`;
+    document.querySelectorAll('[data-download]').forEach(el => { el.href = url; });
+  })
+  .catch(() => {});
+
+// 7. Smooth anchor scroll (offset for sticky nav height)
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {
     const target = document.querySelector(link.getAttribute('href'));
