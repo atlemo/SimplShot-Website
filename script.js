@@ -47,39 +47,94 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // 5. Hero image toggle
-const imgSimple   = document.getElementById('imgSimple');
-const imgAdvanced = document.getElementById('imgAdvanced');
-const btnSimple   = document.getElementById('btnSimple');
-const btnAdvanced = document.getElementById('btnAdvanced');
-const progress    = document.getElementById('toggleProgress');
-const heroContainer = document.getElementById('heroImageContainer');
+const heroImages = {
+  annotate: document.getElementById('imgAnnotate'),
+  edit:     document.getElementById('imgEdit'),
+  view:     document.getElementById('imgView'),
+};
+const heroButtons = {
+  annotate: document.getElementById('btnAnnotate'),
+  edit:     document.getElementById('btnEdit'),
+  view:     document.getElementById('btnView'),
+};
+const progress          = document.getElementById('toggleProgress');
+const heroContainer     = document.getElementById('heroImageContainer');
 const heroPreviewStatus = document.getElementById('heroPreviewStatus');
 
-if (imgSimple && imgAdvanced && btnSimple && btnAdvanced && progress && heroContainer && heroPreviewStatus) {
-  let currentMode = 'advanced';
-  
-  const switchTo = (mode) => {
-    if (mode === currentMode) return;
-    currentMode = mode;
-    const toAdvanced = mode === 'advanced';
+const heroImgSrc = {
+  annotate: { dark: 'assets/annotate_dark.webp', light: 'assets/annotate_light.webp' },
+  edit:     { dark: 'assets/edit_dark.webp',     light: 'assets/edit_light.webp'     },
+  view:     { dark: 'assets/view_dark.webp',     light: 'assets/view_light.webp'     },
+};
 
-    imgSimple.classList.toggle('active', !toAdvanced);
-    imgAdvanced.classList.toggle('active', toAdvanced);
-    imgSimple.hidden = toAdvanced;
-    imgAdvanced.hidden = !toAdvanced;
-    btnSimple.classList.toggle('active', !toAdvanced);
-    btnAdvanced.classList.toggle('active', toAdvanced);
-    btnSimple.setAttribute('aria-pressed', String(!toAdvanced));
-    btnAdvanced.setAttribute('aria-pressed', String(toAdvanced));
-    progress.classList.toggle('right', !toAdvanced);
+const allImgs = Object.values(heroImages);
+const allBtns = Object.values(heroButtons);
+const heroToggle = document.getElementById('toggleProgress')?.parentElement;
+
+const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+function updateImgSources() {
+  const scheme = darkModeQuery.matches ? 'dark' : 'light';
+  Object.entries(heroImages).forEach(([mode, img]) => {
+    if (img) img.src = heroImgSrc[mode][scheme];
+  });
+}
+
+function snapProgress(btn) {
+  if (!progress || !heroToggle) return;
+  const containerLeft = heroToggle.getBoundingClientRect().left;
+  const btnRect = btn.getBoundingClientRect();
+  progress.style.left  = (btnRect.left - containerLeft) + 'px';
+  progress.style.width = btnRect.width + 'px';
+}
+
+if (allImgs.every(Boolean) && allBtns.every(Boolean) && progress && heroContainer && heroPreviewStatus) {
+  let currentMode = 'annotate';
+
+  const switchTo = (mode, animate = true) => {
+    if (mode === currentMode && animate) return;
+    currentMode = mode;
+
+    allImgs.forEach((img, i) => {
+      const active = Object.keys(heroImages)[i] === mode;
+      img.classList.toggle('active', active);
+      img.hidden = !active;
+    });
+    allBtns.forEach((btn, i) => {
+      const active = Object.keys(heroButtons)[i] === mode;
+      btn.classList.toggle('active', active);
+      btn.setAttribute('aria-pressed', String(active));
+    });
+
+    snapProgress(heroButtons[mode]);
     heroContainer.setAttribute('aria-label', `Preview of SimplShot in ${mode} mode`);
     heroPreviewStatus.textContent = `Preview showing ${mode} mode.`;
   };
 
-  imgSimple.hidden = true;
-  imgAdvanced.hidden = false;
-  btnSimple.addEventListener('click', () => switchTo('simple'));
-  btnAdvanced.addEventListener('click', () => switchTo('advanced'));
+  // Set initial state
+  heroImages.annotate.hidden = false;
+  heroImages.edit.hidden = true;
+  heroImages.view.hidden = true;
+
+  // Apply correct sources on load and whenever system theme changes
+  updateImgSources();
+  darkModeQuery.addEventListener('change', updateImgSources);
+
+  // Position indicator without animation on first paint, then enable transitions
+  progress.style.transition = 'none';
+  requestAnimationFrame(() => {
+    switchTo('annotate', false);
+    requestAnimationFrame(() => {
+      progress.style.transition = '';
+    });
+  });
+
+  Object.entries(heroButtons).forEach(([mode, btn]) => {
+    btn.addEventListener('click', () => switchTo(mode));
+  });
+
+  // Reposition on resize in case layout shifts
+  window.addEventListener('resize', () => snapProgress(heroButtons[currentMode]), { passive: true });
 }
 
 // 6. Auto-update download links from the latest GitHub release

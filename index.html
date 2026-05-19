@@ -45,7 +45,7 @@
     <div class="hero-bg-glow"></div>
     <div class="hero-bg-glow-noise" aria-hidden="true"></div>
     <div class="hero-content reveal-up">
-      <h1 class="hero-headline" id="hero-title">Annotate.<br/>Polish.<br/>Ship.</h1>
+      <h1 class="hero-headline" id="hero-title">Annotate.<br/>Edit.<br/>View.</h1>
       <p class="hero-sub">SimplShot is the free macOS screenshot editor for developers, writers, and makers who need polished, annotated screenshots — fast. Powerful annotation tools, reusable templates, custom backgrounds, and one-click batch capture. No account. No cost. Just a tool that works.</p>
       <div class="hero-ctas">
         <a href="https://github.com/atlemo/SimplShot-App/releases/download/1.5.9/SimplShot.dmg" class="btn btn-accent btn-lg" download data-download>
@@ -62,20 +62,22 @@
     </div>
 
     <div class="hero-image-wrap reveal-up reveal-delay">
-      <div class="hero-image-container" id="heroImageContainer" role="img" aria-label="Preview of SimplShot in advanced mode">
-        <img src="assets/promo-shot-1b.png" alt="" class="hero-img" id="imgSimple" hidden aria-hidden="true" />
-        <img src="assets/promo-shot-1a.png" alt="" class="hero-img active" id="imgAdvanced" aria-hidden="true" />
+      <div class="hero-image-container" id="heroImageContainer" role="img" aria-label="Preview of SimplShot in annotate mode">
+        <img src="assets/annotate_dark.webp" alt="" class="hero-img active" id="imgAnnotate" aria-hidden="true" />
+        <img src="assets/edit_dark.webp"     alt="" class="hero-img" id="imgEdit" hidden aria-hidden="true" />
+        <img src="assets/view_dark.webp"     alt="" class="hero-img" id="imgView" hidden aria-hidden="true" />
         <div class="hero-image-glow"></div>
       </div>
-      <p class="visually-hidden" id="heroPreviewStatus" aria-live="polite">Preview showing advanced mode.</p>
+      <p class="visually-hidden" id="heroPreviewStatus" aria-live="polite">Preview showing annotate mode.</p>
       <div class="hero-toggle" role="group" aria-label="Editor preview mode">
-        <button class="toggle-btn active" id="btnAdvanced" data-target="advanced" type="button" aria-controls="heroImageContainer" aria-pressed="true">
-          <i data-lucide="sliders-horizontal" class="toggle-icon"></i>
-          Advanced
+        <button class="toggle-btn active" id="btnAnnotate" data-target="annotate" type="button" aria-controls="heroImageContainer" aria-pressed="true">
+          Annotate
         </button>
-        <button class="toggle-btn" id="btnSimple" data-target="simple" type="button" aria-controls="heroImageContainer" aria-pressed="false">
-          <i data-lucide="scan" class="toggle-icon"></i>
-          Simple
+        <button class="toggle-btn" id="btnEdit" data-target="edit" type="button" aria-controls="heroImageContainer" aria-pressed="false">
+          Edit
+        </button>
+        <button class="toggle-btn" id="btnView" data-target="view" type="button" aria-controls="heroImageContainer" aria-pressed="false">
+          View
         </button>
         <div class="toggle-progress" id="toggleProgress"></div>
       </div>
@@ -156,6 +158,25 @@
           <p>Annotate bug screenshots with arrows, shapes, and pixel measurements. File clearer reports. Spend less time explaining.</p>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- PDF ANNOTATIONS SPOTLIGHT -->
+  <section class="pdf-feature" id="pdf-annotations">
+    <div class="pdf-feature-bg-glow" aria-hidden="true"></div>
+    <div class="pdf-feature-content reveal-up">
+      <span class="pdf-feature-new-badge">
+        <i data-lucide="sparkles" class="badge-icon"></i>
+        New Feature
+      </span>
+      <h2 class="pdf-feature-headline">Annotate PDFs.<br/>Every page.</h2>
+      <p class="pdf-feature-sub">SimplShot now opens PDFs directly — single pages or entire multi-page documents. Jump between pages, add arrows, callouts, highlights, and shapes to any page, then export a polished screenshot ready to share.</p>
+    </div>
+    <div class="pdf-feature-image-wrap reveal-up reveal-delay">
+      <div class="pdf-feature-image-container">
+        <img src="assets/pdf_annotations.webp" alt="SimplShot PDF annotation view showing a multi-page PDF with callouts and highlights applied" class="pdf-feature-img" />
+        <div class="pdf-feature-image-glow"></div>
       </div>
     </div>
   </section>
