@@ -61,7 +61,7 @@ img { display: block; max-width: 100%; }
 }
 
 .skip-link {
-  position: absolute;
+  position: fixed;
   left: 24px;
   top: 16px;
   z-index: 1000;
