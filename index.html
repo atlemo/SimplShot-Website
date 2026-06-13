@@ -3,10 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SimplShot — Free macOS Screenshot Editor &amp; Annotation Tool</title>
-  <meta name="description" content="SimplShot is a free, open-source macOS screenshot editor. Annotate, blur, highlight, and polish screenshots in seconds. Batch capture, reusable templates, OCR, and more — no account needed." />
+  <title>SimplShot — Free macOS Screenshot &amp; PDF Annotation Tool</title>
+  <meta name="description" content="SimplShot is a free, open-source macOS screenshot editor and PDF annotation tool. Annotate, blur, highlight, and polish screenshots, images, and PDFs in seconds — with batch capture, reusable templates, OCR, watermarks, and no account needed." />
+  <link rel="canonical" href="https://simplshot.com/" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="author" content="Atle Mo" />
+  <meta name="application-name" content="SimplShot" />
+  <meta name="apple-mobile-web-app-title" content="SimplShot" />
   <meta name="theme-color" content="#FF4800" />
+
+  <!-- Icons -->
   <link rel="icon" href="assets/app_icon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/app_icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="SimplShot" />
+  <meta property="og:title" content="SimplShot — Free macOS Screenshot &amp; PDF Annotation Tool" />
+  <meta property="og:description" content="Free, open-source macOS app to capture, annotate, and polish screenshots, images, and PDFs. Batch capture, reusable templates, OCR, watermarks — no account needed." />
+  <meta property="og:url" content="https://simplshot.com/" />
+  <meta property="og:image" content="https://simplshot.com/assets/og-image.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="SimplShot — free macOS screenshot and PDF annotation tool" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SimplShot — Free macOS Screenshot &amp; PDF Annotation Tool" />
+  <meta name="twitter:description" content="Free, open-source macOS app to capture, annotate, and polish screenshots, images, and PDFs. Batch capture, templates, OCR — no account needed." />
+  <meta name="twitter:image" content="https://simplshot.com/assets/og-image.jpg" />
+  <meta name="twitter:image:alt" content="SimplShot — free macOS screenshot and PDF annotation tool" />
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
@@ -32,6 +61,7 @@
       </a>
       <a href="#features" class="nav-link">Features</a>
       <a href="#use-cases" class="nav-link">Who It's For</a>
+      <a href="#faq" class="nav-link">FAQ</a>
       <a href="https://github.com/atlemo/SimplShot-App/releases/download/1.5.9/SimplShot.dmg" class="btn btn-accent nav-cta" download data-download>
         <i data-lucide="download" class="btn-icon"></i>
         Download Free
@@ -63,9 +93,9 @@
 
     <div class="hero-image-wrap reveal-up reveal-delay">
       <div class="hero-image-container" id="heroImageContainer" role="img" aria-label="Preview of SimplShot in annotate mode">
-        <img src="assets/annotate_dark.webp" alt="" class="hero-img active" id="imgAnnotate" aria-hidden="true" />
-        <img src="assets/edit_dark.webp"     alt="" class="hero-img" id="imgEdit" hidden aria-hidden="true" />
-        <img src="assets/view_dark.webp"     alt="" class="hero-img" id="imgView" hidden aria-hidden="true" />
+        <img src="assets/annotate_dark.webp" alt="" class="hero-img active" id="imgAnnotate" width="1149" height="794" fetchpriority="high" decoding="async" aria-hidden="true" />
+        <img src="assets/edit_dark.webp"     alt="" class="hero-img" id="imgEdit" width="1149" height="794" decoding="async" hidden aria-hidden="true" />
+        <img src="assets/view_dark.webp"     alt="" class="hero-img" id="imgView" width="1149" height="794" decoding="async" hidden aria-hidden="true" />
         <div class="hero-image-glow"></div>
       </div>
       <p class="visually-hidden" id="heroPreviewStatus" aria-live="polite">Preview showing annotate mode.</p>
@@ -175,7 +205,7 @@
     </div>
     <div class="pdf-feature-image-wrap reveal-up reveal-delay">
       <div class="pdf-feature-image-container">
-        <img src="assets/pdf_annotations.webp" alt="SimplShot PDF annotation view showing a multi-page PDF with callouts and highlights applied" class="pdf-feature-img" />
+        <img src="assets/pdf_annotations.webp" alt="SimplShot PDF annotation view showing a multi-page PDF with callouts and highlights applied" class="pdf-feature-img" width="2428" height="1506" loading="lazy" decoding="async" />
         <div class="pdf-feature-image-glow"></div>
       </div>
     </div>
@@ -497,7 +527,7 @@
 
             <div class="template-canvas">
               <div class="template-shot-frame">
-                <img src="assets/promo-shot-1a.png" alt="SimplShot screenshot styled with a saved template" class="template-shot" />
+                <img src="assets/promo-shot-1a.png" alt="SimplShot screenshot styled with a saved template" class="template-shot" width="2424" height="1506" loading="lazy" decoding="async" />
               </div>
             </div>
           </div>
@@ -665,6 +695,70 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="faq" id="faq" aria-labelledby="faq-title">
+    <div class="section-inner">
+      <div class="section-header reveal-up">
+        <span class="section-label">FAQ</span>
+        <h2 class="section-title" id="faq-title">Frequently asked questions</h2>
+        <p class="section-sub">Everything you need to know about SimplShot — what it does, what it costs, and how it keeps your screenshots private.</p>
+      </div>
+      <div class="faq-list reveal-up">
+
+        <details class="faq-item" open>
+          <summary class="faq-summary">Is SimplShot really free?<i data-lucide="chevron-down" class="faq-chevron"></i></summary>
+          <div class="faq-answer"><p>Yes. SimplShot is completely free and open source — no subscription, no trial, no account, and no paywalled features. It's funded entirely by optional donations through <a href="https://liberapay.com/atle/donate" target="_blank" rel="noopener noreferrer">Liberapay</a>. Every annotation, editing, capture, and export tool is included at no cost, forever.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-summary">What are SimplShot's system requirements?<i data-lucide="chevron-down" class="faq-chevron"></i></summary>
+          <div class="faq-answer"><p>SimplShot runs on macOS 14 (Sonoma) or later. It's a native Mac app — download the DMG, drag it to your Applications folder, and grant Screen Recording permission the first time you capture. No account or sign-in is required.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-summary">Can SimplShot annotate PDFs?<i data-lucide="chevron-down" class="faq-chevron"></i></summary>
+          <div class="faq-answer"><p>Yes. SimplShot opens PDFs directly — single pages or entire multi-page documents. You can jump between pages and add arrows, numbered callouts, highlights, shapes, and text to any page, then export a polished image ready to share.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-summary">Is SimplShot a good free alternative to CleanShot X, Shottr, or Skitch?<i data-lucide="chevron-down" class="faq-chevron"></i></summary>
+          <div class="faq-answer"><p>SimplShot is a free, open-source alternative to Mac screenshot tools like CleanShot X, Shottr, and Skitch. It combines annotation, image editing, PDF markup, OCR, watermarks, reusable templates, and one-click batch capture in a single app — with no subscription and no account.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-summary">Does SimplShot collect or upload my data?<i data-lucide="chevron-down" class="faq-chevron"></i></summary>
+          <div class="faq-answer"><p>No. SimplShot is local-first and private by design. All capture, annotation, and editing happens on your Mac. It doesn't create accounts, doesn't upload your screenshots, and doesn't track you. See the <a href="privacy.html">Privacy Policy</a> for details.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-summary">What can I do with SimplShot besides screenshots?<i data-lucide="chevron-down" class="faq-chevron"></i></summary>
+          <div class="faq-answer"><p>Beyond capturing your screen, SimplShot edits existing images and PDFs, extracts text from any image with OCR, blurs or pixelates sensitive data, adds your logo as a watermark, applies reusable style templates, and batch-exports a window at multiple sizes in one click.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-summary">What is batch capture?<i data-lucide="chevron-down" class="faq-chevron"></i></summary>
+          <div class="faq-answer"><p>Batch capture lets you define a set of window sizes once and capture any app window in all of them with a single click. It's ideal for Mac App Store screenshots, Product Hunt assets, website heroes, and social posts — with no manual resizing or re-exporting.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-summary">Can I add my own watermark or logo?<i data-lucide="chevron-down" class="faq-chevron"></i></summary>
+          <div class="faq-answer"><p>Yes. You can drop in any image — an SVG, PNG, or transparent logo — then set its position, size, and opacity, and save it to a template so every future capture is watermarked automatically.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-summary">Does SimplShot work offline?<i data-lucide="chevron-down" class="faq-chevron"></i></summary>
+          <div class="faq-answer"><p>Yes. SimplShot runs entirely on your Mac and works fully offline. An internet connection is only used to check for and download updates.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-summary">How can I support SimplShot's development?<i data-lucide="chevron-down" class="faq-chevron"></i></summary>
+          <div class="faq-answer"><p>Because SimplShot is free and open source, the best ways to support it are donating through <a href="https://liberapay.com/atle/donate" target="_blank" rel="noopener noreferrer">Liberapay</a>, starring or contributing on GitHub, and sharing it with others who capture and annotate on macOS.</p></div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
   </main>
 
   <div class="starfield-zone">
@@ -701,6 +795,7 @@
         <a href="https://github.com/atlemo/SimplShot-App" target="_blank" rel="noopener noreferrer">GitHub<span class="visually-hidden"> (opens in a new tab)</span></a>
         <a href="https://liberapay.com/atle/donate" target="_blank" rel="noopener noreferrer">Donate<span class="visually-hidden"> (opens in a new tab)</span></a>
         <a href="https://github.com/atlemo/SimplShot-App/releases/download/1.5.9/SimplShot.dmg" download data-download>Download</a>
+        <a href="#faq">FAQ</a>
         <a href="privacy.html">Privacy</a>
         <a href="support.html">Support</a>
       </div>
@@ -801,6 +896,205 @@
     for (let i = 0; i < NUM; i++) { const s = new Star(); s.init(); stars.push(s); }
     requestAnimationFrame(frame);
   })();
+  </script>
+
+  <!-- Structured data (JSON-LD): SoftwareApplication, FAQPage, Organization, WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://simplshot.com/#organization",
+        "name": "SimplShot",
+        "url": "https://simplshot.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://simplshot.com/assets/app_icon.png",
+          "width": 824,
+          "height": 824
+        },
+        "sameAs": [
+          "https://github.com/atlemo/SimplShot-App",
+          "https://liberapay.com/atle/donate"
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://simplshot.com/#creator",
+        "name": "Atle Mo",
+        "url": "https://github.com/atlemo",
+        "sameAs": ["https://github.com/atlemo"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://simplshot.com/#website",
+        "url": "https://simplshot.com/",
+        "name": "SimplShot",
+        "description": "Free, open-source macOS screenshot and PDF annotation tool.",
+        "publisher": { "@id": "https://simplshot.com/#organization" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://simplshot.com/#webpage",
+        "url": "https://simplshot.com/",
+        "name": "SimplShot — Free macOS Screenshot & PDF Annotation Tool",
+        "isPartOf": { "@id": "https://simplshot.com/#website" },
+        "about": { "@id": "https://simplshot.com/#software" },
+        "primaryImageOfPage": "https://simplshot.com/assets/og-image.jpg",
+        "inLanguage": "en"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://simplshot.com/#software",
+        "name": "SimplShot",
+        "description": "SimplShot is a free, open-source macOS app for capturing, annotating, and refining screenshots, images, and PDFs. It includes a full annotation toolkit, image editing, OCR, watermarks, reusable templates, and one-click batch capture at multiple sizes — with no account, subscription, or tracking.",
+        "url": "https://simplshot.com/",
+        "operatingSystem": "macOS 14.0 or later",
+        "applicationCategory": "MultimediaApplication",
+        "applicationSubCategory": "Screenshot & Annotation Tool",
+        "softwareVersion": "1.5.9",
+        "downloadUrl": "https://github.com/atlemo/SimplShot-App/releases/latest",
+        "softwareHelp": "https://simplshot.com/support.html",
+        "image": "https://simplshot.com/assets/og-image.jpg",
+        "screenshot": [
+          "https://simplshot.com/assets/annotate_dark.png",
+          "https://simplshot.com/assets/edit_dark.png",
+          "https://simplshot.com/assets/view_dark.png",
+          "https://simplshot.com/assets/pdf_annotations.png"
+        ],
+        "featureList": [
+          "Screenshot capture of windows and screen areas",
+          "Annotation with arrows, lines, shapes, and freehand drawing",
+          "Numbered step callouts",
+          "Blur and pixelate sensitive content",
+          "Highlight and dim",
+          "Pixel measurements",
+          "OCR — extract text from any image",
+          "PDF annotation for single and multi-page documents",
+          "Reusable style templates",
+          "Watermarks and logo overlays",
+          "Batch capture at multiple window sizes",
+          "Custom backgrounds and gradients",
+          "Crop",
+          "Color picker",
+          "Keyboard shortcuts"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "isAccessibleForFree": true,
+        "author": { "@id": "https://simplshot.com/#creator" },
+        "publisher": { "@id": "https://simplshot.com/#organization" },
+        "sameAs": ["https://github.com/atlemo/SimplShot-App"]
+      },
+      {
+        "@type": "VideoObject",
+        "@id": "https://simplshot.com/#video",
+        "name": "SimplShot — feature overview and quick tour",
+        "description": "A short tour of SimplShot, the free macOS screenshot and PDF annotation tool: capturing, annotating, editing, reusable templates, and one-click batch capture.",
+        "thumbnailUrl": [
+          "https://i.ytimg.com/vi/c-ONA-4CgQo/maxresdefault.jpg",
+          "https://i.ytimg.com/vi/c-ONA-4CgQo/hqdefault.jpg"
+        ],
+        "uploadDate": "2026-04-12",
+        "embedUrl": "https://www.youtube.com/embed/c-ONA-4CgQo",
+        "contentUrl": "https://www.youtube.com/watch?v=c-ONA-4CgQo",
+        "publisher": { "@id": "https://simplshot.com/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://simplshot.com/#faq",
+        "isPartOf": { "@id": "https://simplshot.com/#webpage" },
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is SimplShot really free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. SimplShot is completely free and open source — no subscription, no trial, no account, and no paywalled features. It's funded entirely by optional donations through Liberapay. Every annotation, editing, capture, and export tool is included at no cost, forever."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What are SimplShot's system requirements?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "SimplShot runs on macOS 14 (Sonoma) or later. It's a native Mac app — download the DMG, drag it to your Applications folder, and grant Screen Recording permission the first time you capture. No account or sign-in is required."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can SimplShot annotate PDFs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. SimplShot opens PDFs directly — single pages or entire multi-page documents. You can jump between pages and add arrows, numbered callouts, highlights, shapes, and text to any page, then export a polished image ready to share."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is SimplShot a good free alternative to CleanShot X, Shottr, or Skitch?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "SimplShot is a free, open-source alternative to Mac screenshot tools like CleanShot X, Shottr, and Skitch. It combines annotation, image editing, PDF markup, OCR, watermarks, reusable templates, and one-click batch capture in a single app — with no subscription and no account."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does SimplShot collect or upload my data?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. SimplShot is local-first and private by design. All capture, annotation, and editing happens on your Mac. It doesn't create accounts, doesn't upload your screenshots, and doesn't track you. See the Privacy Policy for details."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What can I do with SimplShot besides screenshots?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Beyond capturing your screen, SimplShot edits existing images and PDFs, extracts text from any image with OCR, blurs or pixelates sensitive data, adds your logo as a watermark, applies reusable style templates, and batch-exports a window at multiple sizes in one click."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is batch capture?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Batch capture lets you define a set of window sizes once and capture any app window in all of them with a single click. It's ideal for Mac App Store screenshots, Product Hunt assets, website heroes, and social posts — with no manual resizing or re-exporting."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I add my own watermark or logo?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You can drop in any image — an SVG, PNG, or transparent logo — then set its position, size, and opacity, and save it to a template so every future capture is watermarked automatically."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does SimplShot work offline?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. SimplShot runs entirely on your Mac and works fully offline. An internet connection is only used to check for and download updates."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How can I support SimplShot's development?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Because SimplShot is free and open source, the best ways to support it are donating through Liberapay, starring or contributing on GitHub, and sharing it with others who capture and annotate on macOS."
+            }
+          }
+        ]
+      }
+    ]
+  }
   </script>
 </body>
 </html>

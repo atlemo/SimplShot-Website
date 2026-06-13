@@ -1,0 +1,42 @@
+# SimplShot
+
+> SimplShot is a free, open-source macOS app for capturing, annotating, and refining screenshots, images, and PDFs. It runs locally on macOS 14 (Sonoma) or later with no account, no subscription, and no tracking.
+
+SimplShot is a native Mac screenshot and annotation tool created by Atle Mo. It is free forever and funded entirely by optional donations. Its standout features are one-click batch capture at multiple window sizes, reusable style templates, multi-page PDF annotation, OCR, and watermarks. It is a free, open-source alternative to Mac screenshot tools such as CleanShot X, Shottr, and Skitch.
+
+## Key facts
+- Name: SimplShot
+- Platform: macOS 14 (Sonoma) or later (native Mac app)
+- Price: Free and open source; optional donations via Liberapay
+- Account required: No
+- Privacy: Local-first — no tracking, no uploads; works fully offline
+- Creator: Atle Mo
+- Website: https://simplshot.com/
+- Download: https://github.com/atlemo/SimplShot-App/releases/latest
+
+## Features
+- Annotation: arrows, lines, shapes, freehand drawing, numbered callouts, and text
+- Blur and pixelate sensitive content (emails, passwords, private data)
+- Highlight and dim to focus attention
+- Pixel measurements for bug reports and design feedback
+- OCR — extract text from any screenshot or image
+- PDF annotation for single pages or entire multi-page documents
+- Reusable style templates (background, padding, shadow, corner radius)
+- Watermarks and logo overlays saved to templates
+- Batch capture: capture any window at multiple preset sizes in one click
+- Custom backgrounds and gradients, crop, color picker, keyboard shortcuts
+
+## Who it's for
+Developers, technical writers, support teams, indie makers, course creators, and QA engineers who capture, annotate, and share screenshots, images, or PDFs on macOS.
+
+## Pages
+- [Home](https://simplshot.com/): overview, full feature list, and FAQ
+- [Support](https://simplshot.com/support.html): help, bug reports, and common issues
+- [Privacy Policy](https://simplshot.com/privacy.html): data handling and macOS permissions
+
+## Common questions
+- Is it free? Yes — free and open source, with no account and no subscription.
+- Does it annotate PDFs? Yes — single pages or entire multi-page documents.
+- Does it collect data? No — local-first, no tracking, and works offline.
+- What does it require? macOS 14 (Sonoma) or later.
+- What is it an alternative to? A free, open-source alternative to CleanShot X, Shottr, and Skitch.

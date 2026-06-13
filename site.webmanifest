@@ -1,0 +1,13 @@
+{
+  "name": "SimplShot",
+  "short_name": "SimplShot",
+  "description": "Free, open-source macOS screenshot & PDF annotation tool.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0C0C0E",
+  "theme_color": "#FF4800",
+  "icons": [
+    { "src": "/assets/app_icon.png", "sizes": "824x824", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
