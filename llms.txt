@@ -31,6 +31,7 @@ Developers, technical writers, support teams, indie makers, course creators, and
 
 ## Pages
 - [Home](https://simplshot.com/): overview, full feature list, and FAQ
+- [Compare](https://simplshot.com/compare): SimplShot vs CleanShot X, Shottr, Xnapper, and Snagit — features and pricing side by side
 - [Support](https://simplshot.com/support.html): help, bug reports, and common issues
 - [Privacy Policy](https://simplshot.com/privacy.html): data handling and macOS permissions
 
@@ -39,4 +40,4 @@ Developers, technical writers, support teams, indie makers, course creators, and
 - Does it annotate PDFs? Yes — single pages or entire multi-page documents.
 - Does it collect data? No — local-first, no tracking, and works offline.
 - What does it require? macOS 14 (Sonoma) or later.
-- What is it an alternative to? A free, open-source alternative to CleanShot X, Shottr, and Skitch.
+- What is it an alternative to? A free, open-source alternative to CleanShot X, Shottr, Xnapper, Snagit, and Skitch. See https://simplshot.com/compare for a side-by-side comparison.

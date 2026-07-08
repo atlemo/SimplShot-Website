@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SimplShot vs CleanShot X, Shottr, Xnapper &amp; Snagit — Mac Screenshot App Comparison</title>
+  <meta name="description" content="Compare SimplShot with CleanShot X, Shottr, Xnapper, and Snagit: features, pricing, and licensing side by side. SimplShot is the only one that's completely free and open source — no subscription, no account, no watermark." />
+  <link rel="canonical" href="https://simplshot.com/compare" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="author" content="Atle Mo" />
+  <meta name="theme-color" content="#FF4800" />
+  <link rel="icon" href="assets/app_icon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/app_icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="SimplShot" />
+  <meta property="og:title" content="SimplShot vs CleanShot X, Shottr, Xnapper &amp; Snagit" />
+  <meta property="og:description" content="Side-by-side comparison of Mac screenshot tools: features, pricing, and licensing. SimplShot is the only fully free, open-source option." />
+  <meta property="og:url" content="https://simplshot.com/compare" />
+  <meta property="og:image" content="https://simplshot.com/assets/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://simplshot.com/assets/og-image.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KRPH0QPEMD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KRPH0QPEMD');
+  </script>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .cmp-wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 120px 24px 80px;
+    }
+    .cmp-header {
+      max-width: 720px;
+      margin: 0 auto 24px;
+      text-align: center;
+    }
+    .cmp-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .cmp-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.12;
+      margin-bottom: 18px;
+    }
+    .cmp-intro {
+      font-size: 1rem;
+      color: var(--text-2);
+      line-height: 1.75;
+      margin-bottom: 10px;
+    }
+    .cmp-updated {
+      font-size: 0.8rem;
+      color: var(--text-3);
+    }
+
+    /* Table */
+    .cmp-table-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 48px 0 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+    }
+    table.cmp-table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 880px;
+      font-size: 0.9rem;
+    }
+    .cmp-table caption { display: none; }
+    .cmp-table th,
+    .cmp-table td {
+      padding: 13px 16px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-2);
+      line-height: 1.5;
+      vertical-align: middle;
+    }
+    .cmp-table thead th {
+      font-weight: 700;
+      color: var(--text-1);
+      font-size: 0.9rem;
+      background: var(--surface-2);
+      padding-top: 16px;
+      padding-bottom: 16px;
+      white-space: nowrap;
+    }
+    .cmp-table thead th small {
+      display: block;
+      font-weight: 500;
+      font-size: 0.72rem;
+      color: var(--text-3);
+      margin-top: 2px;
+    }
+    .cmp-table th[scope="row"] {
+      text-align: left;
+      font-weight: 600;
+      color: var(--text-1);
+      background: var(--surface);
+      position: sticky;
+      left: 0;
+      min-width: 200px;
+      max-width: 240px;
+      box-shadow: 1px 0 0 var(--border);
+    }
+    .cmp-table thead th:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 2;
+      background: var(--surface-2);
+      box-shadow: 1px 0 0 var(--border);
+    }
+    .cmp-group th {
+      text-align: left !important;
+      background: var(--surface-2) !important;
+      color: var(--accent) !important;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding-top: 14px;
+      padding-bottom: 10px;
+    }
+    .cmp-table tbody tr:last-child td,
+    .cmp-table tbody tr:last-child th { border-bottom: none; }
+
+    /* SimplShot column highlight */
+    .cmp-table th.cmp-us,
+    .cmp-table td.cmp-us {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-1);
+      font-weight: 600;
+    }
+    .cmp-table thead th.cmp-us {
+      color: var(--accent);
+      font-size: 0.95rem;
+    }
+
+    .cmp-yes, .cmp-no {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+    }
+    .cmp-yes {
+      background: var(--green-dim);
+      color: var(--green);
+    }
+    .cmp-no {
+      color: var(--text-3);
+      opacity: 0.55;
+      font-weight: 400;
+    }
+    .cmp-yes svg { width: 13px; height: 13px; }
+    .cmp-note {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--text-3);
+      font-weight: 500;
+      margin-top: 3px;
+    }
+    .cmp-price { font-weight: 600; color: var(--text-1); white-space: nowrap; }
+
+    .cmp-legend {
+      font-size: 0.78rem;
+      color: var(--text-3);
+      text-align: center;
+      margin-bottom: 64px;
+      line-height: 1.7;
+    }
+    .cmp-legend a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
+    /* Prose sections */
+    .cmp-sections {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .cmp-section { margin-bottom: 48px; }
+    .cmp-section h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-1);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .cmp-section p {
+      font-size: 0.95rem;
+      color: var(--text-2);
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+    .cmp-section p:last-child { margin-bottom: 0; }
+    .cmp-section a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    .cmp-section a:hover { opacity: 0.8; }
+
+    /* CTA */
+    .cmp-cta {
+      text-align: center;
+      margin: 72px auto 0;
+      padding: 48px 32px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+    }
+    .cmp-cta h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+    .cmp-cta p {
+      color: var(--text-2);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+    .cmp-cta .hero-meta { margin-top: 16px; }
+
+    @media (max-width: 640px) {
+      .cmp-wrap { padding-top: 100px; }
+      .cmp-table th[scope="row"] { min-width: 150px; max-width: 170px; font-size: 0.82rem; }
+      .cmp-table th, .cmp-table td { padding: 11px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav scrolled" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/app_icon.png" alt="SimplShot icon" class="nav-icon" />
+        <span>SimplShot</span>
+      </a>
+      <a href="https://github.com/atlemo/SimplShot-App/releases/download/1.5.9/SimplShot.dmg" class="btn btn-accent nav-cta" download data-download>
+        Download Free
+      </a>
+    </div>
+  </nav>
+
+  <main class="cmp-wrap">
+
+    <header class="cmp-header">
+      <span class="cmp-eyebrow">Comparison</span>
+      <h1 class="cmp-title">SimplShot vs CleanShot&nbsp;X, Shottr, Xnapper &amp; Snagit</h1>
+      <p class="cmp-intro">How does SimplShot stack up against the most popular Mac screenshot and annotation tools? Here's an honest, side-by-side look at features, pricing, and licensing — including the things SimplShot doesn't do.</p>
+      <p class="cmp-updated">Last checked July 2026, using each vendor's public pricing and feature pages.</p>
+    </header>
+
+    <!-- COMPARISON TABLE -->
+    <div class="cmp-table-scroll" role="region" aria-label="Feature comparison table" tabindex="0">
+      <table class="cmp-table">
+        <caption>Feature and pricing comparison of SimplShot, CleanShot X, Shottr, Xnapper, and Snagit</caption>
+        <thead>
+          <tr>
+            <th scope="col"><span class="visually-hidden">Feature</span></th>
+            <th scope="col" class="cmp-us">SimplShot</th>
+            <th scope="col">CleanShot X</th>
+            <th scope="col">Shottr</th>
+            <th scope="col">Xnapper</th>
+            <th scope="col">Snagit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="cmp-group"><th colspan="6" scope="colgroup">Pricing &amp; Licensing</th></tr>
+          <tr>
+            <th scope="row">Price</th>
+            <td class="cmp-us"><span class="cmp-price">Free forever</span><span class="cmp-note">Donations optional</span></td>
+            <td><span class="cmp-price">$29 one-time</span><span class="cmp-note">Updates $19/yr · Cloud Pro $8/mo</span></td>
+            <td><span class="cmp-price">$12 one-time</span><span class="cmp-note">Free for personal use</span></td>
+            <td><span class="cmp-price">From $29.99</span><span class="cmp-note">Free adds a watermark</span></td>
+            <td><span class="cmp-price">$39/year</span><span class="cmp-note">Subscription only</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Open source</th>
+            <td class="cmp-us"><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+          </tr>
+          <tr>
+            <th scope="row">No subscription required</th>
+            <td class="cmp-us"><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+          </tr>
+          <tr>
+            <th scope="row">No account needed</th>
+            <td class="cmp-us"><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span><span class="cmp-note">Cloud is optional</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span><span class="cmp-note">TechSmith account</span></td>
+          </tr>
+
+          <tr class="cmp-group"><th colspan="6" scope="colgroup">Capture</th></tr>
+          <tr>
+            <th scope="row">Area, window &amp; full-screen capture</th>
+            <td class="cmp-us"><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Batch capture at multiple sizes</th>
+            <td class="cmp-us"><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span><span class="cmp-note">Unique to SimplShot</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Scrolling capture</th>
+            <td class="cmp-us"><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Screen recording (video &amp; GIF)</th>
+            <td class="cmp-us"><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+          </tr>
+
+          <tr class="cmp-group"><th colspan="6" scope="colgroup">Annotation &amp; Editing</th></tr>
+          <tr>
+            <th scope="row">Arrows, shapes, text &amp; freehand</th>
+            <td class="cmp-us"><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Numbered step callouts</th>
+            <td class="cmp-us"><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Blur &amp; pixelate sensitive data</th>
+            <td class="cmp-us"><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span><span class="cmp-note">Auto-redaction</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Pixel measurements</th>
+            <td class="cmp-us"><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Protractor — measure angles</th>
+            <td class="cmp-us"><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span><span class="cmp-note">Unique to SimplShot</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+          </tr>
+
+          <tr class="cmp-group"><th colspan="6" scope="colgroup">Text &amp; Documents</th></tr>
+          <tr>
+            <th scope="row">OCR — copy text from images</th>
+            <td class="cmp-us"><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Multi-page PDF annotation</th>
+            <td class="cmp-us"><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span><span class="cmp-note">Unique to SimplShot</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Color picker</th>
+            <td class="cmp-us"><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+          </tr>
+
+          <tr class="cmp-group"><th colspan="6" scope="colgroup">Polish &amp; Branding</th></tr>
+          <tr>
+            <th scope="row">Custom backgrounds &amp; padding</th>
+            <td class="cmp-us"><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Reusable style templates</th>
+            <td class="cmp-us"><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span><span class="cmp-note">Presets</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span><span class="cmp-note">Themes</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Custom watermarks &amp; logos</th>
+            <td class="cmp-us"><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+          </tr>
+
+          <tr class="cmp-group"><th colspan="6" scope="colgroup">Privacy</th></tr>
+          <tr>
+            <th scope="row">Works fully offline</th>
+            <td class="cmp-us"><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="visually-hidden">Yes</span></td>
+            <td><span class="cmp-no" aria-hidden="true">—</span><span class="visually-hidden">No</span><span class="cmp-note">Sign-in required</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="cmp-legend">✓ = included · — = not available or not a core feature.<br/>Details based on each vendor's public website as of July 2026. Spotted something outdated? <a href="https://github.com/atlemo/SimplShot-App/issues" target="_blank" rel="noopener noreferrer">Let us know</a> and we'll fix it.</p>
+
+    <!-- PER-COMPETITOR BREAKDOWNS -->
+    <div class="cmp-sections">
+
+      <div class="cmp-section">
+        <h2>SimplShot vs CleanShot X</h2>
+        <p><a href="https://cleanshot.com/" target="_blank" rel="noopener noreferrer">CleanShot X</a> is the best-known premium screenshot app for Mac, and it earns that reputation. It costs $29 one-time (with updates at $19/year after the first year) or $8/month for Cloud Pro, and adds things SimplShot doesn't have: scrolling capture, screen recording with GIF export, and built-in cloud sharing.</p>
+        <p>SimplShot covers the everyday core — capture, annotate, blur, OCR, backgrounds — completely free, and adds things CleanShot X doesn't offer: multi-page PDF annotation, reusable style templates, custom watermarks, and one-click batch capture at multiple window sizes. If you mainly annotate and polish still screenshots, SimplShot does it without spending anything. If you record your screen or need cloud links, CleanShot X is worth its price.</p>
+      </div>
+
+      <div class="cmp-section">
+        <h2>SimplShot vs Shottr</h2>
+        <p><a href="https://shottr.cc/" target="_blank" rel="noopener noreferrer">Shottr</a> is a fast, lightweight favorite among developers, free for personal use with a $12 one-time license required for commercial use. Like SimplShot it includes OCR, pixel measurements, a color picker, and solid annotation tools — and it adds scrolling capture, which SimplShot doesn't have.</p>
+        <p>The differences: SimplShot is open source and free for any use, including work, with no nag screens. It also goes further on output polish — reusable templates, watermarks, PDF annotation, and batch capture at multiple sizes — where Shottr focuses on speed and staying minimal. Many people run tools like these side by side; both are tiny native apps.</p>
+      </div>
+
+      <div class="cmp-section">
+        <h2>SimplShot vs Xnapper</h2>
+        <p><a href="https://xnapper.com/" target="_blank" rel="noopener noreferrer">Xnapper</a> specializes in making screenshots beautiful — automatic balance, backgrounds, rounded corners, and smart redaction of emails and other sensitive info. The free version adds an Xnapper watermark; removing it starts at $29.99 for one device, with renewal pricing after the first year of updates.</p>
+        <p>SimplShot offers the same core beautification — backgrounds, padding, shadows, rounded corners, saved as reusable templates — plus a much deeper annotation toolkit, PDF markup, pixel measurements, and batch capture, all free with no watermark ever. If your only job is pretty social-media screenshots, Xnapper's auto-balance is slick; for everything else, SimplShot does more for $0.</p>
+      </div>
+
+      <div class="cmp-section">
+        <h2>SimplShot vs Snagit</h2>
+        <p><a href="https://www.techsmith.com/screen-capture.html" target="_blank" rel="noopener noreferrer">Snagit</a> by TechSmith is the enterprise veteran: scrolling and panoramic capture, video recording with narration, and template-driven documentation tools. Since 2025 it's subscription-only at $39/year per user, requires a TechSmith account, and stops working if you stop paying.</p>
+        <p>SimplShot isn't trying to replace Snagit's video workflows. But for the screenshot half of the job — capturing, annotating with arrows and numbered steps, blurring sensitive data, extracting text with OCR — SimplShot covers it in a lighter, faster, native Mac app that's free forever, works offline, and never asks you to sign in.</p>
+      </div>
+
+      <div class="cmp-section">
+        <h2>Where SimplShot honestly falls short</h2>
+        <p>No tool wins every row, and we'd rather you know up front: SimplShot doesn't do scrolling capture, and it doesn't record video or GIFs. If those are must-haves today, CleanShot X or Snagit will serve you better — or pair SimplShot with macOS's built-in screen recorder.</p>
+        <p>What you get in return is the only option in this list that is completely free and open source: every feature included, no trial, no watermark, no license tiers, no account, and code you can <a href="https://github.com/atlemo/SimplShot-App" target="_blank" rel="noopener noreferrer">inspect on GitHub</a>. Development is funded by <a href="https://liberapay.com/atle/donate" target="_blank" rel="noopener noreferrer">optional donations</a>, not by upselling you.</p>
+      </div>
+
+      <!-- FAQ -->
+      <div class="cmp-section" id="faq">
+        <h2>Comparison FAQ</h2>
+
+        <div class="faq-list">
+
+        <details class="faq-item" open>
+          <summary class="faq-summary">Is SimplShot a free alternative to CleanShot X?<i data-lucide="chevron-down" class="faq-chevron"></i></summary>
+          <div class="faq-answer"><p>Yes. SimplShot is a completely free, open-source alternative to CleanShot X for capturing, annotating, and polishing screenshots on macOS. It includes annotation tools, blur and pixelation, OCR, custom backgrounds, watermarks, reusable templates, multi-page PDF annotation, and batch capture — with no purchase, subscription, or account. CleanShot X ($29 one-time, or $8/month for Cloud Pro) adds scrolling capture, screen recording, and cloud sharing, which SimplShot does not have.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-summary">Which Mac screenshot app is free and open source?<i data-lucide="chevron-down" class="faq-chevron"></i></summary>
+          <div class="faq-answer"><p>Among popular Mac screenshot and annotation tools, SimplShot is the only one that is both completely free and open source. CleanShot X, Shottr, Xnapper, and Snagit are all closed source: CleanShot X costs $29 one-time, Shottr requires a $12 license for commercial use, Xnapper starts at $29.99 to remove its watermark, and Snagit is a $39/year subscription.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-summary">What does SimplShot have that CleanShot X, Shottr, and Xnapper don't?<i data-lucide="chevron-down" class="faq-chevron"></i></summary>
+          <div class="faq-answer"><p>SimplShot is the only app in this comparison with one-click batch capture — capturing a window at multiple preset sizes at once — and the only one that opens and annotates multi-page PDFs directly. It also combines reusable style templates, custom watermarks, pixel measurements, OCR, and a color picker in a single free app.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-summary">What can't SimplShot do compared to CleanShot X or Snagit?<i data-lucide="chevron-down" class="faq-chevron"></i></summary>
+          <div class="faq-answer"><p>SimplShot does not have scrolling capture, and it does not record video or GIFs. If you need those, CleanShot X or Snagit are better choices for that part of your workflow — or you can pair SimplShot with macOS's built-in screen recorder.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-summary">How is SimplShot free? What's the catch?<i data-lucide="chevron-down" class="faq-chevron"></i></summary>
+          <div class="faq-answer"><p>There is no catch. SimplShot is an open-source project funded by optional donations through Liberapay. Every feature is included for everyone — there is no trial, no watermark, no paid tier, no account, and no tracking. The full source code is available on GitHub.</p></div>
+        </details>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="cmp-cta">
+      <h2>Try the free one first.</h2>
+      <p>SimplShot costs nothing and takes seconds to install. If it doesn't cover your workflow, the paid apps will still be there.</p>
+      <a href="https://github.com/atlemo/SimplShot-App/releases/download/1.5.9/SimplShot.dmg" class="btn btn-accent btn-lg" download data-download>
+        Download for macOS
+      </a>
+      <p class="hero-meta">Free forever · macOS 14+ · No account needed</p>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <a href="index.html" class="footer-logo">
+        <img src="assets/app_icon.png" alt="SimplShot" class="footer-icon" />
+        <span>SimplShot</span>
+      </a>
+      <div class="footer-links">
+        <a href="https://github.com/atlemo/SimplShot-App" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://liberapay.com/atle/donate" target="_blank" rel="noopener">Donate</a>
+        <a href="https://github.com/atlemo/SimplShot-App/releases/download/1.5.9/SimplShot.dmg" download data-download>Download</a>
+        <a href="compare">Compare</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="support.html">Support</a>
+      </div>
+      <p class="footer-copy">© 2025 SimplShot. Made with care for the macOS community.</p>
+    </div>
+  </footer>
+
+  <script src="assets/lucide.min.js"></script>
+  <script>lucide.createIcons();</script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://simplshot.com/compare#webpage",
+        "url": "https://simplshot.com/compare",
+        "name": "SimplShot vs CleanShot X, Shottr, Xnapper & Snagit — Mac Screenshot App Comparison",
+        "description": "Side-by-side comparison of SimplShot, CleanShot X, Shottr, Xnapper, and Snagit: features, pricing, and licensing for Mac screenshot and annotation tools.",
+        "inLanguage": "en",
+        "dateModified": "2026-07-08",
+        "isPartOf": { "@id": "https://simplshot.com/#website" },
+        "publisher": { "@id": "https://simplshot.com/#organization" },
+        "about": { "@id": "https://simplshot.com/#software" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://simplshot.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Compare", "item": "https://simplshot.com/compare" }
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://simplshot.com/compare#comparison",
+        "name": "Mac screenshot and annotation tools compared",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "item": { "@id": "https://simplshot.com/#software" } },
+          { "@type": "ListItem", "position": 2, "item": { "@type": "SoftwareApplication", "name": "CleanShot X", "operatingSystem": "macOS", "applicationCategory": "MultimediaApplication", "url": "https://cleanshot.com/", "offers": { "@type": "Offer", "price": "29", "priceCurrency": "USD" } } },
+          { "@type": "ListItem", "position": 3, "item": { "@type": "SoftwareApplication", "name": "Shottr", "operatingSystem": "macOS", "applicationCategory": "MultimediaApplication", "url": "https://shottr.cc/", "offers": { "@type": "Offer", "price": "12", "priceCurrency": "USD" } } },
+          { "@type": "ListItem", "position": 4, "item": { "@type": "SoftwareApplication", "name": "Xnapper", "operatingSystem": "macOS", "applicationCategory": "MultimediaApplication", "url": "https://xnapper.com/", "offers": { "@type": "Offer", "price": "29.99", "priceCurrency": "USD" } } },
+          { "@type": "ListItem", "position": 5, "item": { "@type": "SoftwareApplication", "name": "Snagit", "operatingSystem": "macOS", "applicationCategory": "MultimediaApplication", "url": "https://www.techsmith.com/screen-capture.html", "offers": { "@type": "Offer", "price": "39", "priceCurrency": "USD" } } }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://simplshot.com/compare#faq",
+        "isPartOf": { "@id": "https://simplshot.com/compare#webpage" },
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is SimplShot a free alternative to CleanShot X?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. SimplShot is a completely free, open-source alternative to CleanShot X for capturing, annotating, and polishing screenshots on macOS. It includes annotation tools, blur and pixelation, OCR, custom backgrounds, watermarks, reusable templates, multi-page PDF annotation, and batch capture — with no purchase, subscription, or account. CleanShot X ($29 one-time, or $8/month for Cloud Pro) adds scrolling capture, screen recording, and cloud sharing, which SimplShot does not have."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which Mac screenshot app is free and open source?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Among popular Mac screenshot and annotation tools, SimplShot is the only one that is both completely free and open source. CleanShot X, Shottr, Xnapper, and Snagit are all closed source: CleanShot X costs $29 one-time, Shottr requires a $12 license for commercial use, Xnapper starts at $29.99 to remove its watermark, and Snagit is a $39/year subscription."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does SimplShot have that CleanShot X, Shottr, and Xnapper don't?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "SimplShot is the only app in this comparison with one-click batch capture — capturing a window at multiple preset sizes at once — and the only one that opens and annotates multi-page PDFs directly. It also combines reusable style templates, custom watermarks, pixel measurements, OCR, and a color picker in a single free app."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What can't SimplShot do compared to CleanShot X or Snagit?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "SimplShot does not have scrolling capture, and it does not record video or GIFs. If you need those, CleanShot X or Snagit are better choices for that part of your workflow — or you can pair SimplShot with macOS's built-in screen recorder."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is SimplShot free? What's the catch?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "There is no catch. SimplShot is an open-source project funded by optional donations through Liberapay. Every feature is included for everyone — there is no trial, no watermark, no paid tier, no account, and no tracking. The full source code is available on GitHub."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+</body>
+</html>

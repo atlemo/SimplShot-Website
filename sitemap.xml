@@ -20,6 +20,12 @@
     </image:image>
   </url>
   <url>
+    <loc>https://simplshot.com/compare</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://simplshot.com/support.html</loc>
     <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
