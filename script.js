@@ -61,10 +61,11 @@ const progress          = document.getElementById('toggleProgress');
 const heroContainer     = document.getElementById('heroImageContainer');
 const heroPreviewStatus = document.getElementById('heroPreviewStatus');
 
+// Root-absolute so the localized copies under /fr/, /ja/, /ru/, /zh/ resolve too.
 const heroImgSrc = {
-  annotate: { dark: 'assets/annotate_dark.webp', light: 'assets/annotate_light.webp' },
-  edit:     { dark: 'assets/edit_dark.webp',     light: 'assets/edit_light.webp'     },
-  view:     { dark: 'assets/view_dark.webp',     light: 'assets/view_light.webp'     },
+  annotate: { dark: '/assets/annotate_dark.webp', light: '/assets/annotate_light.webp' },
+  edit:     { dark: '/assets/edit_dark.webp',     light: '/assets/edit_light.webp'     },
+  view:     { dark: '/assets/view_dark.webp',     light: '/assets/view_light.webp'     },
 };
 
 const allImgs = Object.values(heroImages);
@@ -107,8 +108,12 @@ if (allImgs.every(Boolean) && allBtns.every(Boolean) && progress && heroContaine
     });
 
     snapProgress(heroButtons[mode]);
-    heroContainer.setAttribute('aria-label', `Preview of SimplShot in ${mode} mode`);
-    heroPreviewStatus.textContent = `Preview showing ${mode} mode.`;
+    // Labels are authored on the buttons so they get translated with the page.
+    const btn = heroButtons[mode];
+    const label = btn.getAttribute('data-i18n-preview-label');
+    const status = btn.getAttribute('data-i18n-preview-status');
+    if (label) heroContainer.setAttribute('aria-label', label);
+    if (status) heroPreviewStatus.textContent = status;
   };
 
   // Set initial state

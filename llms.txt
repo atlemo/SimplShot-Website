@@ -35,6 +35,14 @@ Developers, technical writers, support teams, indie makers, course creators, and
 - [Support](https://simplshot.com/support.html): help, bug reports, and common issues
 - [Privacy Policy](https://simplshot.com/privacy.html): data handling and macOS permissions
 
+## Languages
+The home and compare pages are published in five languages. English is the canonical source; the others are full translations of the same content.
+- English: https://simplshot.com/ and https://simplshot.com/compare
+- French: https://simplshot.com/fr/ and https://simplshot.com/fr/compare
+- Japanese: https://simplshot.com/ja/ and https://simplshot.com/ja/compare
+- Russian: https://simplshot.com/ru/ and https://simplshot.com/ru/compare
+- Chinese (Simplified): https://simplshot.com/zh/ and https://simplshot.com/zh/compare
+
 ## Common questions
 - Is it free? Yes — free and open source, with no account and no subscription.
 - Does it annotate PDFs? Yes — single pages or entire multi-page documents.

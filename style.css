@@ -253,6 +253,7 @@ iframe:focus:not(:focus-visible) {
 .hero-content {
   position: relative;
   z-index: 1;
+  width: 100%;
   max-width: 700px;
 }
 
@@ -278,8 +279,19 @@ iframe:focus:not(:focus-visible) {
   letter-spacing: -0.04em;
   color: var(--text-1);
   margin-bottom: 24px;
+  /* Translated headlines contain much longer single words than the English
+     original (e.g. ru "Просматривать."). Never let one spill out of the hero. */
+  overflow-wrap: break-word;
 }
 .hero-headline span { color: var(--accent); }
+
+/* The Russian headline verbs are ~60% wider than the English originals — at the
+   6.5rem cap "Просматривать." needs 793px inside a 700px content box, so it
+   would break mid-word. Cap it lower; the longest word then measures 671px.
+   Scoped above 600px so the mobile rule below keeps priority on small screens. */
+@media (min-width: 601px) {
+  :lang(ru) .hero-headline { font-size: clamp(3.5rem, 8vw, 5.5rem); }
+}
 
 .hero-sub {
   font-size: clamp(1rem, 2vw, 1.15rem);
@@ -457,6 +469,7 @@ iframe:focus:not(:focus-visible) {
 }
 .section-title {
   font-size: clamp(2rem, 4vw, 3rem);
+  overflow-wrap: break-word;
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.1;
@@ -516,6 +529,7 @@ iframe:focus:not(:focus-visible) {
 
 .pdf-feature-headline {
   font-size: clamp(2.8rem, 6vw, 5rem);
+  overflow-wrap: break-word;
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.04em;
@@ -1620,6 +1634,7 @@ iframe:focus:not(:focus-visible) {
 }
 .cta-title {
   font-size: clamp(2.2rem, 5vw, 3.5rem);
+  overflow-wrap: break-word;
   font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 1.1;
@@ -1681,7 +1696,9 @@ iframe:focus:not(:focus-visible) {
 .footer-icon { width: 22px; height: 22px; border-radius: 5px; }
 .footer-links {
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 20px;
 }
 .footer-links a {
   font-size: 0.85rem;
@@ -1697,6 +1714,60 @@ iframe:focus:not(:focus-visible) {
   text-align: center;
   padding-top: 16px;
   border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+/* --- LANGUAGE PICKER --- */
+.lang-picker {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  padding-top: 18px;
+}
+.lang-picker-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.6);
+}
+.lang-icon { width: 14px; height: 14px; flex-shrink: 0; }
+.lang-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.lang-list a {
+  display: inline-block;
+  font-size: 0.8rem;
+  line-height: 1;
+  padding: 7px 13px;
+  border-radius: 999px;
+  color: rgba(255,255,255,0.75);
+  border: 1px solid rgba(255,255,255,0.18);
+  transition: color 0.15s, border-color 0.15s, background-color 0.15s;
+}
+.lang-list a:hover {
+  color: #fff;
+  border-color: rgba(255,255,255,0.45);
+  background: rgba(255,255,255,0.08);
+}
+.lang-list a:focus-visible {
+  color: #fff;
+  border-color: rgba(255,255,255,0.6);
+}
+.lang-list a[aria-current="true"] {
+  color: #fff;
+  font-weight: 600;
+  background: rgba(255,255,255,0.14);
+  border-color: rgba(255,255,255,0.4);
 }
 
 /* --- SCROLL ANIMATIONS --- */
@@ -2002,10 +2073,22 @@ iframe:focus:not(:focus-visible) {
 }
 
 @media (max-width: 600px) {
+  /* Headline floors below are sized so each meets its desktop clamp floor
+     exactly at 600px — no jump at the breakpoint. The rem floors alone are far
+     too large for long words once the copy is translated. */
+  .hero-headline { font-size: clamp(2rem, 9.33vw, 3.5rem); }
+  .pdf-feature-headline { font-size: clamp(1.75rem, 7.47vw, 2.8rem); }
+  .cta-title { font-size: clamp(1.5rem, 5.87vw, 2.2rem); }
+  .section-title { font-size: clamp(1.5rem, 5.33vw, 2rem); }
+
   .features-grid { grid-template-columns: 1fr; }
   .use-cases-grid { grid-template-columns: 1fr; }
   .hero-ctas { flex-direction: column; align-items: stretch; }
   .hero-ctas .btn { justify-content: center; }
+  /* Translated mode labels are wider than "Annotate/Edit/View"; the pill is a
+     single non-wrapping row (the sliding indicator assumes one line). */
+  .hero-toggle { max-width: 100%; }
+  .toggle-btn { padding: 8px 12px; font-size: 0.78rem; }
   .nav-link { display: none; }
   .trust-bar-inner { gap: 10px; }
   .trust-dot { display: none; }
