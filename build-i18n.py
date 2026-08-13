@@ -283,7 +283,7 @@ def unit_parts(raw: str, unit: dict) -> tuple[str, str, str, int, int]:
 
 # Strings that look like text but must never be translated.
 SKIP_KEY_RE = re.compile(
-    r"^(?:[\s\W\d]*|SimplShot|Atle Mo|GitHub|Liberapay|macOS|OCR|PDF|SVG|PNG|"
+    r"^(?:[\s\W\d]*|SimplShot|Atle Mo|GitHub|Liberapay|macOS|PDF|SVG|PNG|"
     r"CleanShot X|Shottr|Xnapper|Snagit|logo\.svg|dashboard-v2\.png|Auto|"
     r"\d+\s*[×x]\s*\d+|\$[\d.,]+|\d+\s*px|\d+%|[A-Z])$"
 )
