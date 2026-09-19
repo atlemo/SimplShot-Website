@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Changelog — SimplShot</title>
+  <meta name="description" content="Every SimplShot release, newest first — new features, improvements and fixes for the free macOS screenshot, image and PDF annotation app." />
+  <link rel="canonical" href="https://simplshot.com/changelog.html" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Atle Mo" />
+  <meta name="theme-color" content="#FF4800" />
+  <link rel="icon" href="assets/app_icon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/app_icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="SimplShot" />
+  <meta property="og:title" content="Changelog — SimplShot" />
+  <meta property="og:description" content="Every SimplShot release, newest first — new features, improvements and fixes." />
+  <meta property="og:url" content="https://simplshot.com/changelog.html" />
+  <meta property="og:image" content="https://simplshot.com/assets/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://simplshot.com/assets/og-image.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .log-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 120px 24px 100px;
+    }
+    .log-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--text-2);
+      margin-bottom: 48px;
+      transition: color 0.15s;
+    }
+    .log-back:hover { color: var(--text-1); }
+    .log-back svg { width: 14px; height: 14px; }
+
+    .log-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .log-title {
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .log-lead {
+      font-size: 1.02rem;
+      color: var(--text-2);
+      line-height: 1.75;
+      max-width: 620px;
+    }
+    .log-lead a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .log-lead a:hover { opacity: 0.8; }
+
+    .log-list { margin-top: 72px; }
+
+    /* --- One release --- */
+    .log-release {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 28px;
+    }
+    .log-aside {
+      position: sticky;
+      top: 96px;
+      align-self: start;
+      padding-top: 1px;
+    }
+    .log-version {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: var(--text-1);
+    }
+    .log-date {
+      font-size: 0.78rem;
+      color: var(--text-3);
+      margin-top: 6px;
+      display: block;
+    }
+    .log-badge {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 9px;
+      border-radius: 999px;
+    }
+    .log-badge-latest {
+      color: var(--accent);
+      background: var(--accent-dim);
+      box-shadow: inset 0 0 0 1px rgba(255, 72, 0, 0.3);
+    }
+    .log-badge-next {
+      color: var(--text-2);
+      background: var(--surface-2);
+      box-shadow: inset 0 0 0 1px var(--border-2);
+    }
+
+    .log-main {
+      border-left: 1px solid var(--border);
+      padding: 0 0 80px 32px;
+      position: relative;
+      min-width: 0;
+    }
+    .log-main::before {
+      content: '';
+      position: absolute;
+      left: -5px;
+      top: 7px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--surface-3);
+      box-shadow: 0 0 0 4px var(--bg);
+    }
+    .log-release:last-child .log-main { padding-bottom: 0; }
+    .is-current .log-main::before {
+      background: var(--accent);
+      box-shadow: 0 0 0 4px var(--bg), 0 0 14px var(--accent-glow);
+    }
+
+    /* --- Grouped notes --- */
+    .log-group { margin-bottom: 26px; }
+    .log-group:last-child { margin-bottom: 0; }
+    .log-tag {
+      display: inline-block;
+      font-size: 0.66rem;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .log-tag-new      { color: var(--accent); background: var(--accent-dim); }
+    .log-tag-improved { color: var(--template-accent); background: var(--template-accent-dim); }
+    .log-tag-fixed    { color: var(--green); background: var(--green-dim); }
+
+    .log-group ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .log-group li {
+      font-size: 0.95rem;
+      color: var(--text-2);
+      line-height: 1.7;
+      padding-left: 20px;
+      position: relative;
+    }
+    .log-group li::before {
+      content: '·';
+      position: absolute;
+      left: 6px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .log-group li strong { color: var(--text-1); font-weight: 700; }
+    .log-group a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .log-group a:hover { opacity: 0.8; }
+
+    .log-note {
+      font-size: 0.95rem;
+      color: var(--text-2);
+      line-height: 1.7;
+    }
+
+    .log-foot {
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--text-2);
+      line-height: 1.7;
+    }
+    .log-foot a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .log-foot a:hover { opacity: 0.8; }
+
+    @media (max-width: 720px) {
+      .log-wrap { padding: 100px 20px 80px; }
+      .log-title { font-size: 2.1rem; }
+      .log-list { margin-top: 48px; }
+      .log-release {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .log-aside {
+        position: static;
+        display: flex;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .log-date { margin-top: 0; }
+      .log-badge { margin-top: 0; }
+      .log-main { padding-left: 20px; padding-bottom: 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav scrolled" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/app_icon.png" alt="SimplShot icon" class="nav-icon" />
+        <span>SimplShot</span>
+      </a>
+      <a href="https://github.com/atlemo/SimplShot-App/releases/download/1.5.9/SimplShot.dmg" class="btn btn-accent nav-cta" download data-download>
+        Download Free
+      </a>
+    </div>
+  </nav>
+
+  <main class="log-wrap">
+
+    <a href="index.html" class="log-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back to SimplShot
+    </a>
+
+    <span class="log-eyebrow">Release notes</span>
+    <h1 class="log-title">Changelog</h1>
+    <p class="log-lead">Everything that has shipped in SimplShot, newest first. Every release is free, and you can grab any build from <a href="https://github.com/atlemo/SimplShot-App/releases" target="_blank" rel="noopener noreferrer">GitHub Releases</a>.</p>
+
+    <div class="log-list">
+
+      <!-- ===== 1.7.7 ===== -->
+      <article class="log-release is-current" id="v1-7-7">
+        <div class="log-aside">
+          <h2 class="log-version">1.7.7</h2>
+          <span class="log-date"><time datetime="2026-09-19">19 September 2026</time></span>
+          <span class="log-badge log-badge-latest">Latest</span>
+        </div>
+        <div class="log-main">
+          <div class="log-group">
+            <span class="log-tag log-tag-new">New</span>
+            <ul>
+              <li><strong>Build your own gradients.</strong> The <strong>+</strong> in the Gradients list now opens a gradient editor instead of a file picker. Pick linear or radial, set the angle, and add as many colour stops as you like — drag them along the ramp, or type exact positions and hex values. Saved gradients sit alongside the built-in ones.</li>
+              <li><strong>Grain for your gradients.</strong> A Noise slider lays a fine film grain over the gradient, which also smooths the faint banding wide gradients can show.</li>
+              <li><strong>Emoji stickers.</strong> A new Sticker tool stamps emoji onto a screenshot. Pick one from the Tools list, click anywhere to place it, then drag to move or drag a corner to resize. Stickers behave like any other annotation and export with the image.</li>
+              <li><strong>Drag pages between windows.</strong> Drag a thumbnail out of one editor window and drop it into another to copy the page; hold ⌥ while dropping to move it instead. ⌘-click and ⇧-click to take several at once. Crop, rotation, adjustments and annotations come along.</li>
+              <li><strong>Custom Backgrounds.</strong> Your own background images now have a category of their own, next to Gradients and Solid Colors, with its own <strong>+</strong> for adding more. Everything you had already added is still there.</li>
+              <li><strong>Save a PDF page as an image.</strong> Save As on a PDF now offers PNG, JPEG, HEIC and the rest. PDF writes the whole document; an image format writes the current page at the resolution of the bitmap inside it, so a 300 DPI scan exports at 300 DPI rather than 72.</li>
+            </ul>
+          </div>
+          <div class="log-group">
+            <span class="log-tag log-tag-fixed">Fixed</span>
+            <ul>
+              <li><strong>Annotated PDFs lost their table of contents.</strong> Links and document details came through fine, so it was easy to miss. The cause was a PDFKit change in macOS 27, not SimplShot; contents entries now survive.</li>
+              <li><strong>The Templates menu claimed a template was applied</strong> even with no background on the image. It now reads <strong>None</strong>, and choosing None removes the background and watermark while keeping padding and corners.</li>
+              <li><strong>Text ran outside its bubble while editing</strong> if you had set the bubble's width by hand. The editor now wraps exactly as the finished bubble does.</li>
+              <li><strong>The Noise slider in Edit mode washed pictures out</strong> instead of graining them. Grain is now blended in properly, leaving tones and colours alone and falling strongest through the midtones.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== 1.7.6 ===== -->
+      <article class="log-release" id="v1-7-6">
+        <div class="log-aside">
+          <h2 class="log-version">1.7.6</h2>
+          <span class="log-date"><time datetime="2026-09-02">2 September 2026</time></span>
+        </div>
+        <div class="log-main">
+          <div class="log-group">
+            <span class="log-tag log-tag-new">New</span>
+            <ul>
+              <li><strong>Add, remove and reorder PDF pages.</strong> The page strip is now a real page organiser: the × on a thumbnail deletes a page, dragging thumbnails reorders the document, and dropping a PDF or an image onto the strip adds pages. Nothing touches the file on disk until you save.</li>
+              <li><strong>Undo for page changes.</strong> ⌘Z now undoes adding, deleting and reordering pages, including the table-of-contents entry. Undo works in View mode too, and page edits share one history with annotations.</li>
+              <li><strong>Hide the menu bar icon.</strong> Settings › General can take SimplShot's icon out of the menu bar, for anyone who drives the app from keyboard shortcuts. Open it from Spotlight and the menu comes back for as long as you need it. Suggested by <a href="https://github.com/MattOrmianek" target="_blank" rel="noopener noreferrer">Matt Ormianek</a>.</li>
+              <li><strong>Check for Updates in Settings.</strong> It now sits in Settings › About as well as the menu bar, so updating never depends on the icon being visible.</li>
+            </ul>
+          </div>
+          <div class="log-group">
+            <span class="log-tag log-tag-improved">Improved</span>
+            <ul>
+              <li><strong>Saving a PDF keeps its outline, links and metadata.</strong> Saving used to rebuild the document from scratch and silently drop all three. A document with nothing composited over it is now saved byte-for-byte intact; when there are annotations or a watermark, the outline, links and metadata are carried across.</li>
+              <li><strong>More accurate template previews.</strong> Settings › Template now previews closer to what it exports: Auto keeps padding even, ratio presets show the right canvas shape, and watermarks appear near their exported size.</li>
+            </ul>
+          </div>
+          <div class="log-group">
+            <span class="log-tag log-tag-fixed">Fixed</span>
+            <ul>
+              <li><strong>Adding an HDR photo to a PDF produced a blank page.</strong> Photos from a recent iPhone decode as 10-bit HDR, which PDFKit accepts but cannot embed, so the page came out white with no error. Images are now converted to 8-bit first, and PNG transparency is preserved.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== 1.7.5 ===== -->
+      <article class="log-release" id="v1-7-5">
+        <div class="log-aside">
+          <h2 class="log-version">1.7.5</h2>
+          <span class="log-date"><time datetime="2026-08-24">24 August 2026</time></span>
+        </div>
+        <div class="log-main">
+          <div class="log-group">
+            <span class="log-tag log-tag-new">New</span>
+            <ul>
+              <li><strong>Flip.</strong> Mirror a screenshot left to right or top to bottom from the crop panel. Like rotating and straightening it is non-destructive: annotations are mirrored along with the image, and flipping again puts everything back.</li>
+            </ul>
+          </div>
+          <div class="log-group">
+            <span class="log-tag log-tag-improved">Improved</span>
+            <ul>
+              <li><strong>Crop mode takes over the sidebar.</strong> Starting a crop replaces the whole sidebar with a dedicated panel, in Annotate and Edit mode alike. Straighten, Flip, Rotate and every aspect ratio are laid out in one place instead of behind a pop-up menu, with Apply and Cancel pinned to the bottom.</li>
+            </ul>
+          </div>
+          <div class="log-group">
+            <span class="log-tag log-tag-fixed">Fixed</span>
+            <ul>
+              <li><strong>Aspect ratio survives flipping and rotating.</strong> Flipping or rotating mid-crop used to drop the selection back to the whole canvas, and with a background applied it could jump outside its own bounds. The selection now follows the image and keeps its locked ratio.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== 1.7.4 ===== -->
+      <article class="log-release" id="v1-7-4">
+        <div class="log-aside">
+          <h2 class="log-version">1.7.4</h2>
+          <span class="log-date"><time datetime="2026-08-20">20 August 2026</time></span>
+        </div>
+        <div class="log-main">
+          <div class="log-group">
+            <span class="log-tag log-tag-new">New</span>
+            <ul>
+              <li><strong>Capture History.</strong> The menu bar shows your last 10 captures and opened files as a film strip. Hover an entry and click Restore to reopen the image with every annotation still editable. Editable state lives in memory, so entries restored after a relaunch reopen the file itself.</li>
+            </ul>
+          </div>
+          <div class="log-group">
+            <span class="log-tag log-tag-improved">Improved</span>
+            <ul>
+              <li><strong>Even padding when aligning.</strong> Aligning to an edge now puts the screenshot flush against it while the other sides keep their exact padding, instead of doubling the gap on the opposite side.</li>
+              <li><strong>Lower memory use.</strong> Sessions that are not on screen now keep a losslessly compressed copy of their image — roughly 5–15% of the decoded size — and re-derive display bitmaps on demand, so a long day of captures no longer accumulates hundreds of megabytes.</li>
+            </ul>
+          </div>
+          <div class="log-group">
+            <span class="log-tag log-tag-fixed">Fixed</span>
+            <ul>
+              <li><strong>Pixelation matches the preview.</strong> Saved and copied images now use the same soft mosaic blocks you see in the editor, instead of a slightly different pattern.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== 1.7.3 ===== -->
+      <article class="log-release" id="v1-7-3">
+        <div class="log-aside">
+          <h2 class="log-version">1.7.3</h2>
+          <span class="log-date"><time datetime="2026-08-15">15 August 2026</time></span>
+        </div>
+        <div class="log-main">
+          <div class="log-group">
+            <span class="log-tag log-tag-fixed">Fixed</span>
+            <ul>
+              <li><strong>⌘C stopped working in other apps.</strong> The Save &amp; Copy shortcut from 1.7.2 was registered system-wide by mistake, so SimplShot swallowed ⌘C everywhere while it was running. It is now confined to the editor window; just update, no cleanup needed.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== 1.7.2 ===== -->
+      <article class="log-release" id="v1-7-2">
+        <div class="log-aside">
+          <h2 class="log-version">1.7.2</h2>
+          <span class="log-date"><time datetime="2026-08-13">13 August 2026</time></span>
+        </div>
+        <div class="log-main">
+          <div class="log-group">
+            <span class="log-tag log-tag-new">New</span>
+            <ul>
+              <li><strong>Customizable Save &amp; Copy shortcut.</strong> ⌘C in the editor now saves the image, copies it and closes the window. The binding sits under Settings › Shortcuts and can be changed or cleared. It only fires in a focused editor window, never while you are editing or selecting text.</li>
+              <li><strong>German localization.</strong> Deutsch joins English, French, Japanese, Russian and Simplified Chinese. Pick it in Settings › General, or let SimplShot follow your macOS language.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== 1.7.1 ===== -->
+      <article class="log-release" id="v1-7-1">
+        <div class="log-aside">
+          <h2 class="log-version">1.7.1</h2>
+          <span class="log-date"><time datetime="2026-08-11">11 August 2026</time></span>
+        </div>
+        <div class="log-main">
+          <div class="log-group">
+            <span class="log-tag log-tag-new">New</span>
+            <ul>
+              <li><strong>SimplShot speaks your language.</strong> The whole interface — menus, the editor, alerts and the release notes — is available in English, French, Japanese, Russian and Simplified Chinese, following your macOS language automatically.</li>
+              <li><strong>Language picker.</strong> Settings › General can run SimplShot in a different language than the rest of your Mac. Each language is written in its own script, so you can always find your way back.</li>
+              <li><strong>Print rotation and scale.</strong> The print dialog gains Rotation and Scale. “Auto (fit page)” turns the page only when that fills the paper better, so a landscape screenshot prints large on portrait paper. Scale runs from 25% to 200%, with 100% meaning fit to page.</li>
+            </ul>
+          </div>
+          <div class="log-group">
+            <span class="log-tag log-tag-improved">Improved</span>
+            <ul>
+              <li><strong>Flip any crop ratio between landscape and portrait.</strong> Pick 3:2 and the new orientation button gives you 2:3, and the same for every other ratio. The separate 3:4 and 9:16 presets are gone — the button covers them all.</li>
+            </ul>
+          </div>
+          <div class="log-group">
+            <span class="log-tag log-tag-fixed">Fixed</span>
+            <ul>
+              <li><strong>Crop now reaches every edge.</strong> With an aspect ratio locked, dragging a handle no longer stalls just short of the right or bottom edge.</li>
+              <li><strong>Missing drag handles on sliders.</strong> The knob on the Stroke, Font Size, Pixelation and Spotlight sliders now appears right away instead of only showing up once you had clicked and dragged.</li>
+              <li>Large images no longer look like they failed to open — while a big file is being decoded the editor shows a loading indicator instead of briefly flashing “Unable to load image”.</li>
+              <li>Applying a saved template no longer nudges annotations out of place when the padding, background, aspect ratio and alignment all change at once.</li>
+              <li>The focus ring on the Annotate · Edit · View switch now follows the segment you actually clicked, instead of staying stuck on whichever one had it first.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== 1.7.0 ===== -->
+      <article class="log-release" id="v1-7-0">
+        <div class="log-aside">
+          <h2 class="log-version">1.7.0</h2>
+          <span class="log-date"><time datetime="2026-07-07">7 July 2026</time></span>
+        </div>
+        <div class="log-main">
+          <div class="log-group">
+            <span class="log-tag log-tag-new">New</span>
+            <ul>
+              <li><strong>Bendable curved arrows.</strong> A curved arrow now has a third handle at the middle of its curve — drag it to bend the shaft exactly where you want, or push it back to snap the arrow straight. The bend is stored relative to the endpoints, so it survives moving, resizing and cropping.</li>
+              <li><strong>Double arrow style.</strong> A new arrow style with filled arrowheads at both ends. Double arrows start straight and can be bent with the same middle handle as curved arrows.</li>
+              <li><strong>Angle tool (protractor).</strong> Drag between two points to place the outer legs, then pull the middle handle to the corner being measured. SimplShot draws both rays, a dashed arc and a degree pill; hold Shift to snap to 45° steps.</li>
+              <li><strong>More image formats.</strong> AVIF, HEIF, JPEG XL, JPEG 2000 and Photoshop (PSD) files now open too. Saving keeps the original format where it can, and offers Save As where it cannot.</li>
+            </ul>
+          </div>
+          <div class="log-group">
+            <span class="log-tag log-tag-improved">Improved</span>
+            <ul>
+              <li><strong>Hand-drawn sketch arrows.</strong> The Sketch style has been redrawn as a gritty, variable-width ink stroke — a tapering shaft with roughened edges and arrowhead flicks that thin out like real pen strokes. Each arrow keeps its own texture, so it never shimmers while editing.</li>
+              <li>Curved and double arrows now render as a single filled path, so semi-transparent colours stay uniform with no seam between shaft and head.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== 1.6.9 ===== -->
+      <article class="log-release" id="v1-6-9">
+        <div class="log-aside">
+          <h2 class="log-version">1.6.9</h2>
+          <span class="log-date"><time datetime="2026-06-29">29 June 2026</time></span>
+        </div>
+        <div class="log-main">
+          <div class="log-group">
+            <span class="log-tag log-tag-new">New</span>
+            <ul>
+              <li><strong>Straighten tool.</strong> While cropping, drag the new Straighten slider to level a tilted screenshot in 1° steps. The crop tightens automatically so you never get blank corners, and an alignment grid appears while you adjust to help you line things up.</li>
+              <li><strong>Tint control.</strong> A new Tint slider sits under Color alongside Temperature, for finer colour correction.</li>
+            </ul>
+          </div>
+          <div class="log-group">
+            <span class="log-tag log-tag-improved">Improved</span>
+            <ul>
+              <li><strong>Redesigned Edit mode.</strong> Photo adjustments are now organised into tidy, collapsible Light, Color and Detail sections, inspired by Apple Photos, so the panel is much easier to scan.</li>
+              <li>Crop, Rotate and Resize now sit together in Edit mode for a clearer, more consistent editing workflow.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== 1.6.8 ===== -->
+      <article class="log-release" id="v1-6-8">
+        <div class="log-aside">
+          <h2 class="log-version">1.6.8</h2>
+          <span class="log-date"><time datetime="2026-06-21">21 June 2026</time></span>
+        </div>
+        <div class="log-main">
+          <div class="log-group">
+            <span class="log-tag log-tag-new">New</span>
+            <ul>
+              <li><strong>Apply one look to every open image at once.</strong> “Apply to all images” in the editor sidebar shares background, padding, corner radius, shadow, alignment and aspect ratio across every open screenshot. Watermark and photo adjustments stay per-image, and SimplShot asks first if some images are already styled differently.</li>
+            </ul>
+          </div>
+          <div class="log-group">
+            <span class="log-tag log-tag-improved">Improved</span>
+            <ul>
+              <li><strong>PDFs open zoomed to fit the window.</strong> The page fills the available space instead of opening small, and Fit now scales up as well as down. Vector pages stay sharp at any zoom; raster images keep their true-size cap.</li>
+              <li>Screenshots without a background again show with subtle rounded corners and a soft drop shadow, matching the look used for PDF pages.</li>
+              <li>Thumbnails in the open-images strip now update live as you restyle an image, so they always match what you see.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== 1.6.7 ===== -->
+      <article class="log-release" id="v1-6-7">
+        <div class="log-aside">
+          <h2 class="log-version">1.6.7</h2>
+          <span class="log-date"><time datetime="2026-06-12">12 June 2026</time></span>
+        </div>
+        <div class="log-main">
+          <div class="log-group">
+            <span class="log-tag log-tag-new">New</span>
+            <ul>
+              <li><strong>Password-protected PDFs.</strong> SimplShot now asks for the password and unlocks the document.</li>
+            </ul>
+          </div>
+          <div class="log-group">
+            <span class="log-tag log-tag-improved">Improved</span>
+            <ul>
+              <li>Much smoother editing — adjusting padding, background, alignment or aspect ratio no longer makes annotations wobble, and the preview keeps up with fast slider drags.</li>
+              <li>Smoother pinch-zoom in the editor: the view stays anchored under your cursor instead of jittering.</li>
+              <li>Annotations in the editor now match the exported image exactly, at any zoom level.</li>
+            </ul>
+          </div>
+          <div class="log-group">
+            <span class="log-tag log-tag-fixed">Fixed</span>
+            <ul>
+              <li>The Delete key is now scoped to its own editor window, so multi-window editing no longer deletes annotations in other open editors.</li>
+              <li>Area and window capture filenames now include the date, so captures at the same time on different days no longer overwrite each other.</li>
+              <li>Watermark exports now honour the Edge and Bottom offset sliders instead of hardcoded margins, matching the on-canvas preview.</li>
+              <li>Fixed-width text bubbles no longer disappear from exported PDFs or land in the wrong place in high-DPI raster exports.</li>
+              <li>Saving TIFF, GIF and BMP files now encodes the correct format instead of writing JPEG or PNG bytes under the wrong extension.</li>
+              <li>Resize now maps axes correctly on rotated images and scales text sizes with the image.</li>
+              <li>Crop is no longer offered on PDF pages — it distorted the live view and was silently dropped from the exported PDF.</li>
+              <li>Trashing one image in a multi-image session no longer closes the whole editor, and deleting a multi-page PDF trashes the right file.</li>
+              <li>Undoing a newly placed text bubble no longer leaves an invisible empty annotation behind.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== 1.6.6 ===== -->
+      <article class="log-release" id="v1-6-6">
+        <div class="log-aside">
+          <h2 class="log-version">1.6.6</h2>
+          <span class="log-date"><time datetime="2026-06-08">8 June 2026</time></span>
+        </div>
+        <div class="log-main">
+          <div class="log-group">
+            <span class="log-tag log-tag-fixed">Fixed</span>
+            <ul>
+              <li><strong>The Crop tool on screenshots without a background.</strong> The crop selection now covers the whole image from the start instead of appearing shifted down and to the right.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== 1.6.5 ===== -->
+      <article class="log-release" id="v1-6-5">
+        <div class="log-aside">
+          <h2 class="log-version">1.6.5</h2>
+          <span class="log-date"><time datetime="2026-06-07">7 June 2026</time></span>
+        </div>
+        <div class="log-main">
+          <div class="log-group">
+            <span class="log-tag log-tag-fixed">Fixed</span>
+            <ul>
+              <li><strong>Multi-page PDFs now render correctly.</strong> Pages after the first are no longer cropped or shrunk, and rotated pages — scans, typically — appear upright and full size.</li>
+              <li>Scanned and image-based PDFs now copy, save and print at full resolution instead of looking soft.</li>
+              <li>Selecting the Arrow or Shapes tool no longer pops open its style picker automatically — click the tool again to change its style.</li>
+              <li>The toolbar now shows the focus highlight on the active tool instead of the pointer.</li>
+              <li>Fixed a freeze when applying a template whose watermark image was missing or slow to load. Templates also apply faster.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== 1.6.4 ===== -->
+      <article class="log-release" id="v1-6-4">
+        <div class="log-aside">
+          <h2 class="log-version">1.6.4</h2>
+          <span class="log-date"><time datetime="2026-06-03">3 June 2026</time></span>
+        </div>
+        <div class="log-main">
+          <div class="log-group">
+            <span class="log-tag log-tag-new">New</span>
+            <ul>
+              <li><strong>Crop aspect ratios.</strong> Choose a preset ratio — 1:1, 4:3, 16:9 and more — and drag inside the selection to reposition it.</li>
+              <li><strong>Choose the file format in Save As.</strong> PNG, JPEG, HEIC or WebP.</li>
+            </ul>
+          </div>
+          <div class="log-group">
+            <span class="log-tag log-tag-improved">Improved</span>
+            <ul>
+              <li>The Background panel gained a Padding label, “Effects” was renamed to “Background Effects”, and the Alignment and Ratio controls now stay disabled until a background is applied.</li>
+            </ul>
+          </div>
+          <div class="log-group">
+            <span class="log-tag log-tag-fixed">Fixed</span>
+            <ul>
+              <li>The colour picker's black-and-white grid glitch is gone, and the live magnifier is much smoother.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== 1.6.3 ===== -->
+      <article class="log-release" id="v1-6-3">
+        <div class="log-aside">
+          <h2 class="log-version">1.6.3</h2>
+          <span class="log-date"><time datetime="2026-05-24">24 May 2026</time></span>
+        </div>
+        <div class="log-main">
+          <div class="log-group">
+            <span class="log-tag log-tag-new">New</span>
+            <ul>
+              <li><strong>A What's New dialog after updates,</strong> so you can see what changed without leaving the app.</li>
+              <li><strong>Anonymous usage counting</strong> via TelemetryDeck, to get a rough sense of how many people are using SimplShot. No personal data, no accounts, and nothing tied to you — see the <a href="privacy.html">privacy policy</a> for the details.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== 1.6.2 ===== -->
+      <article class="log-release" id="v1-6-2">
+        <div class="log-aside">
+          <h2 class="log-version">1.6.2</h2>
+          <span class="log-date"><time datetime="2026-05-24">24 May 2026</time></span>
+        </div>
+        <div class="log-main">
+          <div class="log-group">
+            <span class="log-tag log-tag-new">New</span>
+            <ul>
+              <li><strong>Printing.</strong> Print open images and documents with ⌘P.</li>
+              <li><strong>Option-drag to duplicate.</strong> Hold ⌥ and drag any annotation to create a copy — the original stays in place, and a copy cursor appears whenever ⌥ is held in annotate mode.</li>
+              <li><strong>Shift-drag axis lock.</strong> Hold ⇧ while dragging an annotation to constrain movement to a single axis, matching the behaviour of standard design tools.</li>
+              <li><strong>Arrow key nudging.</strong> Move a selected annotation 1px with the arrow keys, or 10px with ⇧.</li>
+              <li><strong>Snap-to-centre alignment.</strong> Dragging an annotation snaps it to the horizontal and vertical centre of the image, with dashed guide lines appearing as it lines up.</li>
+              <li><strong>PDF page reordering.</strong> Drag and drop thumbnails in the sidebar strip to reorder pages. Page numbers update, and PDF export respects the new order.</li>
+            </ul>
+          </div>
+          <div class="log-group">
+            <span class="log-tag log-tag-improved">Improved</span>
+            <ul>
+              <li><strong>Annotation bounds clipping.</strong> Shapes that extend beyond the edge of the screenshot are now cropped at the image border rather than overflowing into the surrounding editor area.</li>
+              <li>Multi-page PDFs show thumbnail previews for all pages immediately on opening, rather than only after you navigate to each page.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== 1.6.1 ===== -->
+      <article class="log-release" id="v1-6-1">
+        <div class="log-aside">
+          <h2 class="log-version">1.6.1</h2>
+          <span class="log-date"><time datetime="2026-05-18">18 May 2026</time></span>
+        </div>
+        <div class="log-main">
+          <div class="log-group">
+            <span class="log-tag log-tag-new">New</span>
+            <ul>
+              <li><strong>Edit mode.</strong> A new mode for photo adjustments, alongside annotating.</li>
+              <li><strong>PDF viewing and annotation,</strong> including multi-page documents.</li>
+              <li><strong>Open multiple images at once,</strong> with a thumbnail strip for moving between them.</li>
+              <li><strong>SimplShot in the Finder context menu,</strong> so you can open an image straight from a right-click.</li>
+              <li>Templates can now be removed.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== 1.5.9 ===== -->
+      <article class="log-release" id="v1-5-9">
+        <div class="log-aside">
+          <h2 class="log-version">1.5.9</h2>
+          <span class="log-date"><time datetime="2026-04-30">30 April 2026</time></span>
+        </div>
+        <div class="log-main">
+          <div class="log-group">
+            <span class="log-tag log-tag-new">New</span>
+            <ul>
+              <li><strong>Watermarks.</strong> Add a logo or image overlay to a capture, with edge and bottom offset controls, and save it into a template.</li>
+              <li><strong>New shapes</strong> in the annotation toolbar.</li>
+            </ul>
+          </div>
+          <div class="log-group">
+            <span class="log-tag log-tag-improved">Improved</span>
+            <ul>
+              <li>Better fill and outline colour handling for shapes, plus a round of sidebar UX improvements.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== 1.5.8 ===== -->
+      <article class="log-release" id="v1-5-8">
+        <div class="log-aside">
+          <h2 class="log-version">1.5.8</h2>
+          <span class="log-date"><time datetime="2026-04-24">24 April 2026</time></span>
+        </div>
+        <div class="log-main">
+          <div class="log-group">
+            <span class="log-tag log-tag-fixed">Fixed</span>
+            <ul>
+              <li><strong>The colour picker froze the app.</strong> Activating it could deadlock and hang SimplShot, and the magnifier preview lagged behind the pointer. The picker was rebuilt on a synchronous capture path that is sub-millisecond for small regions, so it opens instantly and the magnifier keeps up with the mouse. Window exclusion — overlay, magnifier and HUD — is preserved.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== 1.5.7 ===== -->
+      <article class="log-release" id="v1-5-7">
+        <div class="log-aside">
+          <h2 class="log-version">1.5.7</h2>
+          <span class="log-date"><time datetime="2026-04-23">23 April 2026</time></span>
+        </div>
+        <div class="log-main">
+          <div class="log-group">
+            <span class="log-tag log-tag-improved">Improved</span>
+            <ul>
+              <li>The Template settings row was reworked: the “Apply selected template” checkbox moved into the Template row with descriptive hint text, and the separate Apply row is gone.</li>
+            </ul>
+          </div>
+          <div class="log-group">
+            <span class="log-tag log-tag-fixed">Fixed</span>
+            <ul>
+              <li>The rectangle and circle style popovers no longer dismiss the instant you open them, in either the simple toolbar or the sidebar.</li>
+              <li>The template preview in Settings no longer always shows a transparent checkerboard — it now previews the selected template whether or not the Apply toggle is on.</li>
+              <li>Sidebar section titles line up with each other again; the Backgrounds header was indented further than the rest.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== 1.5.6 ===== -->
+      <article class="log-release" id="v1-5-6">
+        <div class="log-aside">
+          <h2 class="log-version">1.5.6</h2>
+          <span class="log-date"><time datetime="2026-04-14">14 April 2026</time></span>
+        </div>
+        <div class="log-main">
+          <div class="log-group">
+            <span class="log-tag log-tag-new">New</span>
+            <ul>
+              <li><strong>A dedicated colour picker</strong> with a live magnifier for sampling colours from anywhere on screen.</li>
+              <li><strong>Custom colour backgrounds</strong> for captures.</li>
+              <li><strong>More keyboard shortcuts,</strong> plus a round of Settings improvements.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== 1.5.5 ===== -->
+      <article class="log-release" id="v1-5-5">
+        <div class="log-aside">
+          <h2 class="log-version">1.5.5</h2>
+          <span class="log-date"><time datetime="2026-04-12">12 April 2026</time></span>
+        </div>
+        <div class="log-main">
+          <div class="log-group">
+            <span class="log-tag log-tag-improved">Improved</span>
+            <ul>
+              <li><strong>Now runs on macOS 14 Sonoma.</strong> The minimum requirement was lowered from macOS 15.</li>
+              <li>Better corner radius handling on backgrounds.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== 1.5.4 ===== -->
+      <article class="log-release" id="v1-5-4">
+        <div class="log-aside">
+          <h2 class="log-version">1.5.4</h2>
+          <span class="log-date"><time datetime="2026-04-08">8 April 2026</time></span>
+        </div>
+        <div class="log-main">
+          <p class="log-note">The first public release of SimplShot on GitHub — capture, annotate and style screenshots on macOS, free and open source.</p>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="log-foot">Older builds, source code and every release binary live on <a href="https://github.com/atlemo/SimplShot-App/releases" target="_blank" rel="noopener noreferrer">GitHub</a>. Found a bug or have an idea? <a href="support.html">Get in touch</a>.</p>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="assets/app_icon.png" alt="SimplShot" class="footer-icon" />
+        <span>SimplShot</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/atlemo/SimplShot-App" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://liberapay.com/atle/donate" target="_blank" rel="noopener">Donate</a>
+        <a href="https://github.com/atlemo/SimplShot-App/releases/download/1.5.9/SimplShot.dmg" download data-download>Download</a>
+        <a href="compare">Compare</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="support.html">Support</a>
+      </div>
+      <p class="footer-copy">© 2025 SimplShot. Made with care for the macOS community.</p>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://simplshot.com/changelog.html#webpage",
+        "url": "https://simplshot.com/changelog.html",
+        "name": "Changelog — SimplShot",
+        "description": "Every SimplShot release, newest first — new features, improvements and fixes for the free macOS screenshot, image and PDF annotation app.",
+        "inLanguage": "en",
+        "isPartOf": { "@id": "https://simplshot.com/#website" },
+        "publisher": { "@id": "https://simplshot.com/#organization" },
+        "about": { "@id": "https://simplshot.com/#software" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://simplshot.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Changelog", "item": "https://simplshot.com/changelog.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <script>
+    // Point the download buttons at the latest GitHub release.
+    // (script.js is not used here — it depends on lucide, which this page doesn't load.)
+    fetch('https://api.github.com/repos/atlemo/SimplShot-App/releases/latest', {
+      headers: { Accept: 'application/vnd.github+json' }
+    })
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(data => {
+        if (!data.tag_name) return;
+        const url = `https://github.com/atlemo/SimplShot-App/releases/download/${data.tag_name}/SimplShot.dmg`;
+        document.querySelectorAll('[data-download]').forEach(el => { el.href = url; });
+      })
+      .catch(() => {});
+  </script>
+
+</body>
+</html>

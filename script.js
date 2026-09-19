@@ -61,11 +61,16 @@ const progress          = document.getElementById('toggleProgress');
 const heroContainer     = document.getElementById('heroImageContainer');
 const heroPreviewStatus = document.getElementById('heroPreviewStatus');
 
-// Root-absolute so the localized copies under /fr/, /ja/, /ru/, /zh/ resolve too.
+// Take the prefix from whatever the markup already points at, so these keep
+// resolving wherever the page is served from: index.html authors `assets/…`,
+// the generated /fr/ /ja/ /ru/ /zh/ copies author `/assets/…` (build-i18n.py
+// re-roots them), and opening the file straight off disk works too.
+const assetBase = (heroImages.annotate?.getAttribute('src') || 'assets/x').replace(/[^/]*$/, '');
+
 const heroImgSrc = {
-  annotate: { dark: '/assets/annotate_dark.webp', light: '/assets/annotate_light.webp' },
-  edit:     { dark: '/assets/edit_dark.webp',     light: '/assets/edit_light.webp'     },
-  view:     { dark: '/assets/view_dark.webp',     light: '/assets/view_light.webp'     },
+  annotate: { dark: assetBase + 'annotate_dark.webp', light: assetBase + 'annotate_light.webp' },
+  edit:     { dark: assetBase + 'edit_dark.webp',     light: assetBase + 'edit_light.webp'     },
+  view:     { dark: assetBase + 'view_dark.webp',     light: assetBase + 'view_light.webp'     },
 };
 
 const allImgs = Object.values(heroImages);

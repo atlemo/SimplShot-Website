@@ -32,6 +32,7 @@ Developers, technical writers, support teams, indie makers, course creators, and
 ## Pages
 - [Home](https://simplshot.com/): overview, full feature list, and FAQ
 - [Compare](https://simplshot.com/compare): SimplShot vs CleanShot X, Shottr, Xnapper, and Snagit — features and pricing side by side
+- [Changelog](https://simplshot.com/changelog.html): every release since 1.5.4, newest first — new features, improvements, and fixes
 - [Support](https://simplshot.com/support.html): help, bug reports, and common issues
 - [Privacy Policy](https://simplshot.com/privacy.html): data handling and macOS permissions
 

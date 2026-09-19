@@ -135,6 +135,12 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://simplshot.com/compare" />
   </url>
   <url>
+    <loc>https://simplshot.com/changelog.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://simplshot.com/support.html</loc>
     <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
